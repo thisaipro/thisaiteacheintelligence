@@ -1,0 +1,135 @@
+{
+ "attempt_id": "demo-TCH-0501",
+ "teacher_id": "TCH-0501",
+ "teacher_name": "Deepak Venkatesh",
+ "institution_name": "St. Peter's Matriculation, Chennai",
+ "department": "Social Science",
+ "grade_band": "High School (9-10)",
+ "assessed_at": "2026-09-11T10:35:00.000Z",
+ "index": 54,
+ "index_mean": 1.63,
+ "index_band": "consistent",
+ "dims": [
+  {
+   "dimension_id": "equity",
+   "dimension_name": "Equity of Treatment",
+   "band": "developing",
+   "score_0_to_3": 0.9,
+   "items_scored": 5,
+   "coaching_note": "In the unit test scenario, you ranked \"Changes Kabir's mark on the spot to close the conversation and moves on, without checking any…\" first. The framework places \"Tells Kabir she'll review all similarly-marked answers before changing anything, then checks…\" first — fixes the standard before acting on anyone's case — best equity outcome and process.",
+   "action": "For two weeks, track who you call on and who you follow up with. A 15-minute peer observation focused only on \"who did I attend to\" surfaces the pattern faster than any training input."
+  },
+  {
+   "dimension_id": "deesc",
+   "dimension_name": "Behavioral De-escalation",
+   "band": "consistent",
+   "score_0_to_3": 1.35,
+   "items_scored": 5,
+   "coaching_note": "In the after receiving a lower-than-expected grade back scenario, you ranked \"Firmly tells him to lower his voice and defends the grade on the spot in front of everyone\" first. The framework places \"Stays calm, acknowledges his frustration without agreeing or disagreeing with the grade yet…\" first — de-escalates the public confrontation and moves the actual dispute to a setting where it can be resolved properly.",
+   "action": "Practise the sequence: remove the audience, drop your voice, address the behaviour privately. Rehearse it on one recurring situation before the next incident."
+  },
+  {
+   "dimension_id": "doubt",
+   "dimension_name": "Doubt-Resolution & Responsiveness",
+   "band": "consistent",
+   "score_0_to_3": 2.1,
+   "items_scored": 5,
+   "coaching_note": "In the class 10 student's question about a scenario, you ranked \"Answers the current question fully but doesn't address the earlier gap it reveals\" first. The framework places \"Diagnoses the gap accurately, briefly bridges it in the moment, and arranges focused revision…\" first — reads the doubt as revealing a root gap, not just a surface question, and acts on it with exam timing in mind.",
+   "action": "When an explanation has not landed twice, change the representation — draw it, act it, or hand it to a peer — rather than changing the volume."
+  },
+  {
+   "dimension_id": "adapt",
+   "dimension_name": "Instructional Adaptability",
+   "band": "consistent",
+   "score_0_to_3": 1.35,
+   "items_scored": 5,
+   "coaching_note": "In the single class 10 section scenario, you ranked \"Teaches to the middle of the class, accepting that both ends are somewhat underserved\" first. The framework places \"Splits practice time so exam-ready students get advanced problems while she works directly wi…\" first — actively differentiates for both ends of the readiness range in the same class period.",
+   "action": "Build one deliberate checkpoint into every long session: two diagnostic questions at the 15-minute mark, then decide whether to continue or switch."
+  },
+  {
+   "dimension_id": "decide",
+   "dimension_name": "Decision-Making Under Ambiguity",
+   "band": "consistent",
+   "score_0_to_3": 1.8,
+   "items_scored": 5,
+   "coaching_note": "In the mid-class scenario, you ranked \"Tells the staff member the student will come 'after this topic,' without checking if it's act…\" first. The framework places \"Gets a quick one-line clarification on urgency from the staff member, hands the class a short…\" first — gathers just enough information to make a reasonable call under real time pressure.",
+   "action": "A phrase worth practising: \"Here is what I know today, here is what I will confirm, and here is when I will come back to you.\""
+  },
+  {
+   "dimension_id": "critical",
+   "dimension_name": "Critical Thinking / Root-Cause Diagnosis",
+   "band": "consistent",
+   "score_0_to_3": 1.8,
+   "items_scored": 5,
+   "coaching_note": "In the whole class 10 section performs unexpectedly scenario, you ranked \"Assumes the class collectively didn't revise enough and assigns extra homework without furthe…\" first. The framework places \"Reviews her own teaching approach and the assessment questions to find the actual mismatch, r…\" first — investigates the actual mismatch between apparent engagement and results before assigning cause.",
+   "action": "Before acting on a suspicion, gather one piece of first-hand evidence — ask the learner to talk you through their own work."
+  },
+  {
+   "dimension_id": "lead",
+   "dimension_name": "Leadership & Influence Style",
+   "band": "consistent",
+   "score_0_to_3": 2.1,
+   "items_scored": 5,
+   "coaching_note": "The best response was identified in the scenarios answered (represents the decision credibly and calmly while remaining genuinely open to the parent's input) but the weakest option was not ranked last — \"Backs down from the original decision immediately just to end the confrontation\" was placed below \"Gets visibly defensive and argues back in front of the coordinator\". Your instinct is right; the reading of what does most harm is less sharp.",
+   "action": "Next time you raise a concern, attach an offer: \"let me run it in one section and bring back what happened.\""
+  }
+ ],
+ "equity_gate": true,
+ "strengths": [
+  "doubt",
+  "lead"
+ ],
+ "growth": [
+  "equity",
+  "adapt"
+ ],
+ "insights": [
+  {
+   "ic": "▲",
+   "text": "Your sharpest instinct is Doubt-Resolution & Responsiveness (2.10 of 3.00). In the high school scenarios for this dimension you ranked the responses closest to where the framework places them."
+  },
+  {
+   "ic": "▼",
+   "text": "The widest gap is Equity of Treatment (0.90 of 3.00) — far enough from your strongest dimension that it is a difference in practice, not measurement noise."
+  },
+  {
+   "ic": "≈",
+   "text": "Your profile is uneven — more than a full point separates the best and weakest dimensions. Uneven profiles respond well to one narrow intervention rather than general professional development."
+  },
+  {
+   "ic": "!",
+   "text": "Equity of treatment sits in the Developing band. It is treated separately from the other six dimensions because it describes not how you teach but who receives it — see the priority section above."
+  }
+ ],
+ "path": [
+  {
+   "wk": "Weeks 1–2",
+   "t": "Attention Audit — Equity of Treatment",
+   "d": "A tally sheet and a 15-minute peer observation protocol that records only who you called on, who you followed up with, and who you let pass. The pattern is almost never the one teachers predict."
+  },
+  {
+   "wk": "Week 3",
+   "t": "Peer observation, one focus only",
+   "d": "A colleague watches one lesson and records nothing except equity of treatment. Twenty minutes of debrief, no written record, not used for appraisal."
+  },
+  {
+   "wk": "Weeks 4–5",
+   "t": "Mid-Lesson Checkpoints — Instructional Adaptability",
+   "d": "Two diagnostic questions at the fifteen-minute mark, and a decision rule for what to do with the answer. Turns adaptability from instinct into a scheduled habit."
+  },
+  {
+   "wk": "Week 6",
+   "t": "Reassess and compare",
+   "d": "Retake the reflection on the same grade band. The comparison worth reading is per dimension, not the index — a five-point index move can hide the only change that mattered."
+  },
+  {
+   "wk": "Ongoing",
+   "t": "Use your strength in Doubt-Resolution & Responsiveness",
+   "d": "Academic heads pair teachers on complementary profiles. This dimension is where you would be most useful to a colleague, and mentoring is the fastest way to consolidate it."
+  }
+ ],
+ "scoring_version": "v1",
+ "items_answered": 35,
+ "items_total": 35,
+ "preview": false
+}

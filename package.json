@@ -1,0 +1,16 @@
+{
+  "name": "thisai-teacher-intelligence",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @thisai/ta-api & npm run dev --workspace @thisai/ta-web",
+    "test": "npm test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present"
+  }
+}

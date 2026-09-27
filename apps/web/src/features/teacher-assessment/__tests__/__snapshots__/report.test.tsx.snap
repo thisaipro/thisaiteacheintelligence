@@ -1,0 +1,4923 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ReportScreen > renders the admin report (snapshot) with the caution banner and cohort 1`] = `
+<main
+  class="wrap mid"
+  data-role="admin"
+>
+  <section
+    aria-label="Summary"
+    class="rtop"
+  >
+    <div
+      class="idn"
+    >
+      <div>
+        <h1>
+          Deepak Venkatesh
+        </h1>
+        <div
+          class="meta"
+        >
+          <span
+            class="pill"
+          >
+            High School band
+          </span>
+          <span
+            class="pill"
+          >
+            Social Science
+          </span>
+          <span
+            class="pill"
+          >
+            TCH-0501
+          </span>
+          <span
+            class="pill"
+          >
+            Assessed 11 September 2026
+          </span>
+          <span
+            class="pill arch"
+          >
+            Equity gate raised
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="body"
+    >
+      <div
+        aria-label="Teaching practice index 54 of 100"
+        class="dial"
+        role="img"
+        style="width: 168px; height: 168px;"
+      >
+        <svg
+          aria-hidden="true"
+          height="168"
+          viewBox="0 0 168 168"
+          width="168"
+        >
+          <circle
+            cx="84"
+            cy="84"
+            fill="none"
+            r="71"
+            stroke="var(--bg-4)"
+            stroke-width="15"
+          />
+          <circle
+            cx="84"
+            cy="84"
+            fill="none"
+            r="71"
+            stroke="#3f5fae"
+            stroke-dasharray="446.10615680975064"
+            stroke-dashoffset="205.20883213248527"
+            stroke-linecap="round"
+            stroke-width="15"
+          />
+        </svg>
+        <div
+          aria-hidden="true"
+          class="ctr"
+        >
+          <b
+            style="color: rgb(63, 95, 174);"
+          >
+            54
+          </b>
+          <span>
+            of 100
+          </span>
+        </div>
+      </div>
+      <div>
+        <div
+          class="mono"
+          style="color: var(--ink-3t); margin-bottom: 8px;"
+        >
+          Teaching practice index · Consistent practice
+        </div>
+        <p
+          class="frame"
+        >
+          Responses were dependable in most situations, with clear variation between dimensions — the ordinary shape of an experienced teacher's profile. The dimension rows below carry the signal worth acting on, not the index.
+        </p>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi mid"
+          >
+            <div
+              class="k"
+            >
+              Strongest dimension
+            </div>
+            <div
+              class="v"
+            >
+              Doubt-Resolution
+            </div>
+            <div
+              class="s"
+            >
+              2.10 of 3.00
+            </div>
+          </div>
+          <div
+            class="kpi warn"
+          >
+            <div
+              class="k"
+            >
+              Widest gap
+            </div>
+            <div
+              class="v"
+            >
+              Equity
+            </div>
+            <div
+              class="s"
+            >
+              0.90 of 3.00
+            </div>
+          </div>
+          <div
+            class="kpi warn"
+          >
+            <div
+              class="k"
+            >
+              Equity gate
+            </div>
+            <div
+              class="v"
+            >
+              Raised
+            </div>
+            <div
+              class="s"
+            >
+              Priority conversation this cycle
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="k"
+            >
+              vs school average
+            </div>
+            <div
+              class="v"
+              style="color: var(--developing-t);"
+            >
+              -19 pts
+            </div>
+            <div
+              class="s"
+            >
+              11 teachers assessed · 35 of 35 scenarios answered
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div
+    class="validbanner"
+    role="note"
+  >
+    <span
+      aria-hidden="true"
+      class="ic"
+    >
+      !
+    </span>
+    <div>
+      <h4>
+        Read with caution — the response pattern tripped a validity check
+      </h4>
+      <p>
+        This profile is shown in full, but one or more checks suggest the rankings may not reflect considered responses. Worth a conversation before the profile is used for coaching decisions. Not shown on the teacher-facing view.
+      </p>
+      <ul>
+        <li>
+          Median time per item was 4.7s (under 8s).
+        </li>
+      </ul>
+    </div>
+  </div>
+  <section
+    aria-labelledby="ta-gate-h"
+    class="gate"
+    role="region"
+  >
+    <div
+      class="lbl"
+    >
+      Priority conversation · Equity of treatment
+    </div>
+    <h3
+      id="ta-gate-h"
+    >
+      This one is worth talking through before anything else.
+    </h3>
+    <p>
+      Equity of treatment sits apart from the other six dimensions. The rest describe how a teacher works; this one describes who gets the benefit of it. A classroom can be well-run and still hand most of the attention, patience and benefit of the doubt to the same few children.
+    </p>
+    <p>
+      On this profile it lands in Developing. That is a coaching conversation to schedule, not a performance record to file — the pattern below is specific enough to act on within a fortnight.
+    </p>
+    <div
+      class="todo"
+    >
+      <b>
+        What the responses showed
+      </b>
+      In the unit test scenario, this teacher ranked "Changes Kabir's mark on the spot to close the conversation and moves on, without checking any…" first. The framework places "Tells Kabir she'll review all similarly-marked answers before changing anything, then checks…" first — fixes the standard before acting on anyone's case — best equity outcome and process.
+    </div>
+    <div
+      class="todo"
+      style="margin-top: 10px;"
+    >
+      <b>
+        One thing to try
+      </b>
+      For two weeks, track who you call on and who you follow up with. A 15-minute peer observation focused only on "who did I attend to" surfaces the pattern faster than any training input.
+    </div>
+  </section>
+  <div
+    class="readout"
+  >
+    <span
+      aria-hidden="true"
+      class="orb"
+    >
+      ◆
+    </span>
+    <div>
+      <h4>
+        How to read this in two minutes
+      </h4>
+      <ul>
+        <li>
+          <b>
+            The index is a summary, not a rating.
+          </b>
+           Two teachers on the same index can need opposite support — the shape of the radar is what decides the coaching.
+        </li>
+        <li>
+          <b>
+            Look for the dents.
+          </b>
+           Anything inside the dashed school-average outline is where this teacher trails the cohort; anything outside it is where they could mentor a colleague.
+        </li>
+        <li>
+          <b>
+            Equity is a gate, not a score.
+          </b>
+           A raised gate is a conversation to schedule regardless of how strong the other six dimensions look.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      Teaching competency profile
+    </h2>
+    <span
+      class="desc"
+    >
+      Seven dimensions, each scored 0–3 across five scenarios
+    </span>
+  </div>
+  <div
+    class="chartrow"
+  >
+    <div
+      class="chartcard"
+    >
+      <div
+        class="ch"
+      >
+        <h3>
+          Profile shape
+        </h3>
+        <span>
+          0 at centre · 3 at the edge
+        </span>
+      </div>
+      <p
+        class="cn"
+      >
+        The filled shape is this profile, and the dashed outline is the average of the teachers assessed at the school.
+      </p>
+      <div
+        class="radarwrap"
+      >
+        <svg
+          aria-label="Seven-dimension profile: Equity 0.9 of 3; De-escalation 1.4 of 3; Doubt-Resolution 2.1 of 3; Adaptability 1.4 of 3; Decision-Making 1.8 of 3; Critical Thinking 1.8 of 3; Leadership 2.1 of 3"
+          height="336"
+          role="img"
+          viewBox="0 0 356 336"
+          width="356"
+        >
+          <polygon
+            fill="none"
+            points="178.0,132.0 206.1,145.6 213.1,176.0 193.6,200.4 162.4,200.4 142.9,176.0 149.9,145.6"
+            stroke="var(--line-2)"
+            stroke-dasharray="3 3"
+            stroke-width="1"
+          />
+          <polygon
+            fill="none"
+            points="178.0,96.0 234.3,123.1 248.2,184.0 209.2,232.9 146.8,232.9 107.8,184.0 121.7,123.1"
+            stroke="var(--line-2)"
+            stroke-dasharray="3 3"
+            stroke-width="1"
+          />
+          <polygon
+            fill="var(--bg-3)"
+            points="178.0,60.0 262.4,100.7 283.3,192.0 224.9,265.3 131.1,265.3 72.7,192.0 93.6,100.7"
+            stroke="var(--line-2)"
+            stroke-width="1.2"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="178"
+            y1="168"
+            y2="60"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="262.43780010654723"
+            y1="168"
+            y2="100.66310139925679"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="283.29221451563694"
+            y1="168"
+            y2="192.03226086728196"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="224.85944382469629"
+            y1="168"
+            y2="265.3046377334613"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="131.14055617530374"
+            y1="168"
+            y2="265.3046377334613"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="72.70778548436304"
+            y1="168"
+            y2="192.03226086728196"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="93.56219989345277"
+            y1="168"
+            y2="100.66310139925679"
+          />
+          <polygon
+            fill="none"
+            points="178.0,93.5 242.2,116.8 260.8,186.9 212.5,239.7 143.9,238.7 102.5,185.2 117.8,120.0"
+            stroke="var(--ink-3)"
+            stroke-dasharray="5 4"
+            stroke-width="1.6"
+          />
+          <polygon
+            fill="rgba(73,79,156,.18)"
+            points="178.0,135.6 216.0,137.7 251.7,184.8 199.1,211.8 149.9,226.4 114.8,182.4 118.9,120.9"
+            stroke="var(--brand)"
+            stroke-width="2.4"
+          />
+          <circle
+            cx="178"
+            cy="135.6"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="215.99701004794625"
+            cy="137.69839562966555"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="251.70455016094587"
+            cy="184.82258260709736"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="199.08674972111334"
+            cy="211.78708698005758"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="149.88433370518223"
+            cy="226.38278264007675"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="114.82467129061783"
+            cy="182.41935652036918"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="118.89353992541693"
+            cy="120.86417097947975"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <g>
+            <text
+              text-anchor="middle"
+              x="178"
+              y="35"
+            >
+              Equity
+            </text>
+            <text
+              class="val"
+              text-anchor="middle"
+              x="178"
+              y="47"
+            >
+              0.9
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="start"
+              x="281.2017556857799"
+              y="84.69934615464717"
+            >
+              De-escalation
+            </text>
+            <text
+              class="val"
+              text-anchor="start"
+              x="281.2017556857799"
+              y="96.69934615464717"
+            >
+              1.4
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="start"
+              x="306.6904844080007"
+              y="200.3727632822335"
+            >
+              Doubt-Resolution
+            </text>
+            <text
+              class="val"
+              text-anchor="start"
+              x="306.6904844080007"
+              y="212.3727632822335"
+            >
+              2.1
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="start"
+              x="235.27265356351768"
+              y="295.9278905631193"
+            >
+              Adaptability
+            </text>
+            <text
+              class="val"
+              text-anchor="start"
+              x="235.27265356351768"
+              y="307.9278905631193"
+            >
+              1.4
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="end"
+              x="120.72734643648234"
+              y="295.9278905631193"
+            >
+              Decision-Making
+            </text>
+            <text
+              class="val"
+              text-anchor="end"
+              x="120.72734643648234"
+              y="307.9278905631193"
+            >
+              1.8
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="end"
+              x="49.309515591999286"
+              y="200.3727632822335"
+            >
+              Critical Thinking
+            </text>
+            <text
+              class="val"
+              text-anchor="end"
+              x="49.309515591999286"
+              y="212.3727632822335"
+            >
+              1.8
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="end"
+              x="74.79824431422006"
+              y="84.6993461546472"
+            >
+              Leadership
+            </text>
+            <text
+              class="val"
+              text-anchor="end"
+              x="74.79824431422006"
+              y="96.6993461546472"
+            >
+              2.1
+               / 3
+            </text>
+          </g>
+        </svg>
+      </div>
+      <div
+        class="radarkey"
+      >
+        <span
+          class="lg"
+        >
+          <span
+            class="sw"
+            style="background: var(--brand);"
+          />
+          Deepak
+        </span>
+        <span
+          class="lg"
+        >
+          <span
+            class="sw"
+            style="background: var(--ink-3); height: 0px; border-top: 2px dashed var(--ink-3);"
+          />
+          School average
+        </span>
+      </div>
+    </div>
+    <div
+      class="chartcard"
+    >
+      <div
+        class="ch"
+      >
+        <h3>
+          Ranked by score
+        </h3>
+        <span>
+          strongest first
+        </span>
+      </div>
+      <p
+        class="cn"
+      >
+        Band zones are shaded behind each bar; the ▲ marker is the school average for that dimension.
+      </p>
+      <div>
+        <div
+          class="dbars"
+        >
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Doubt-Resolution & Responsiveness
+              <i>
+                5 of 5 scenarios scored
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 70%; background: var(--consistent);"
+              />
+              <span
+                class="avg"
+                style="left: 78.66666666666666%;"
+                title="School average 2.36"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                2.10
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Leadership & Influence Style
+              <i>
+                5 of 5 scenarios scored
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 70%; background: var(--consistent);"
+              />
+              <span
+                class="avg"
+                style="left: 71.33333333333334%;"
+                title="School average 2.14"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                2.10
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Decision-Making Under Ambiguity
+              <i>
+                5 of 5 scenarios scored
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 60%; background: var(--consistent);"
+              />
+              <span
+                class="avg"
+                style="left: 72.66666666666667%;"
+                title="School average 2.18"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                1.80
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Critical Thinking
+              <i>
+                5 of 5 scenarios scored
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 60%; background: var(--consistent);"
+              />
+              <span
+                class="avg"
+                style="left: 71.66666666666667%;"
+                title="School average 2.15"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                1.80
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Behavioral De-escalation
+              <i>
+                5 of 5 scenarios scored
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 45%; background: var(--consistent);"
+              />
+              <span
+                class="avg"
+                style="left: 75.99999999999999%;"
+                title="School average 2.28"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                1.35
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Instructional Adaptability
+              <i>
+                5 of 5 scenarios scored
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 45%; background: var(--consistent);"
+              />
+              <span
+                class="avg"
+                style="left: 73.66666666666667%;"
+                title="School average 2.21"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                1.35
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Equity of Treatment
+              <i>
+                5 of 5 scenarios scored
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 30%; background: var(--developing);"
+              />
+              <span
+                class="avg"
+                style="left: 69%;"
+                title="School average 2.07"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--developing-t);"
+              >
+                0.90
+              </b>
+              <span
+                class="bp"
+                style="background: var(--developing-soft); color: var(--developing-t);"
+              >
+                Developing
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="dbaxis"
+        >
+          <span
+            class="sp"
+          />
+          <div
+            class="zones"
+          >
+            <span>
+              Developing 0–1.2
+            </span>
+            <span>
+              Consistent 1.3–2.2
+            </span>
+            <span>
+              Strong 2.3–3.0
+            </span>
+          </div>
+          <span
+            class="sp"
+          />
+        </div>
+      </div>
+      <div
+        class="sechead"
+        style="margin: 22px 0px 8px;"
+      >
+        <h2
+          style="font-size: 14px;"
+        >
+          Band distribution
+        </h2>
+        <span
+          class="desc"
+        >
+          How the seven dimensions fall
+        </span>
+      </div>
+      <div
+        aria-label="0 strong, 6 consistent, 1 developing, 0 not yet assessed"
+        class="disbar"
+        role="img"
+      >
+        <div
+          class="z"
+          style="width: 0%; background: rgb(47, 138, 82); color: rgb(255, 255, 255);"
+        />
+        <div
+          class=""
+          style="width: 85.71428571428571%; background: rgb(63, 95, 174); color: rgb(255, 255, 255);"
+        >
+          6
+        </div>
+        <div
+          class=""
+          style="width: 14.285714285714285%; background: rgb(181, 124, 18); color: rgb(255, 255, 255);"
+        >
+          1
+        </div>
+        <div
+          class="z"
+          style="width: 0%; background: var(--bg-4); color: var(--ink-2);"
+        />
+      </div>
+      <div
+        class="dislegend"
+      >
+        <span
+          class="lg"
+        >
+          <span
+            class="sw"
+            style="background: rgb(47, 138, 82);"
+          />
+          Strong 
+          0
+        </span>
+        <span
+          class="lg"
+        >
+          <span
+            class="sw"
+            style="background: rgb(63, 95, 174);"
+          />
+          Consistent 
+          6
+        </span>
+        <span
+          class="lg"
+        >
+          <span
+            class="sw"
+            style="background: rgb(181, 124, 18);"
+          />
+          Developing 
+          1
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      Strengths and development areas
+    </h2>
+    <span
+      class="desc"
+    >
+      Highest and lowest of the seven dimensions
+    </span>
+  </div>
+  <div
+    class="sgrid"
+  >
+    <div
+      class="spanel up"
+    >
+      <div
+        class="hd"
+      >
+        Strength areas
+      </div>
+      <div
+        class="it"
+      >
+        <b>
+          Doubt-Resolution & Responsiveness
+          <i>
+            2.10
+            /3
+          </i>
+        </b>
+        <p>
+          What happens when a learner does not follow — and keeps not following.
+        </p>
+      </div>
+      <div
+        class="it"
+      >
+        <b>
+          Leadership & Influence Style
+          <i>
+            2.10
+            /3
+          </i>
+        </b>
+        <p>
+          Effect on colleagues, parents and the wider staffroom, beyond one classroom.
+        </p>
+      </div>
+    </div>
+    <div
+      class="spanel grow"
+    >
+      <div
+        class="hd"
+      >
+        Development areas
+      </div>
+      <div
+        class="it"
+      >
+        <b>
+          Equity of Treatment
+          <i>
+            0.90
+            /3
+          </i>
+        </b>
+        <p>
+          Whether every child gets the same quality of attention, patience and benefit of the doubt.
+        </p>
+      </div>
+      <div
+        class="it"
+      >
+        <b>
+          Instructional Adaptability
+          <i>
+            1.35
+            /3
+          </i>
+        </b>
+        <p>
+          Willingness to change method, pace or medium when the plan is not landing.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      Key insights
+    </h2>
+    <span
+      class="desc"
+    >
+      Read from this teacher’s own ranking pattern
+    </span>
+  </div>
+  <div
+    class="insights"
+  >
+    <div
+      class="insight"
+    >
+      <span
+        aria-hidden="true"
+        class="ic"
+      >
+        ▲
+      </span>
+      <p>
+        This teacher's sharpest instinct is Doubt-Resolution & Responsiveness (2.10 of 3.00). In the high school scenarios for this dimension this teacher ranked the responses closest to where the framework places them.
+      </p>
+    </div>
+    <div
+      class="insight"
+    >
+      <span
+        aria-hidden="true"
+        class="ic"
+      >
+        ▼
+      </span>
+      <p>
+        The widest gap is Equity of Treatment (0.90 of 3.00) — far enough from their strongest dimension that it is a difference in practice, not measurement noise.
+      </p>
+    </div>
+    <div
+      class="insight"
+    >
+      <span
+        aria-hidden="true"
+        class="ic"
+      >
+        ≈
+      </span>
+      <p>
+        This teacher's profile is uneven — more than a full point separates the best and weakest dimensions. Uneven profiles respond well to one narrow intervention rather than general professional development.
+      </p>
+    </div>
+    <div
+      class="insight"
+    >
+      <span
+        aria-hidden="true"
+        class="ic"
+      >
+        !
+      </span>
+      <p>
+        Equity of treatment sits in the Developing band. It is treated separately from the other six dimensions because it describes not how a teacher teaches but who receives it — see the priority section above.
+      </p>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      Against the cohort
+    </h2>
+    <span
+      class="desc"
+    >
+      This teacher versus the 11-teacher school average
+    </span>
+  </div>
+  <div
+    class="tablewrap"
+  >
+    <table
+      class="cmp"
+    >
+      <thead>
+        <tr>
+          <th>
+            Dimension
+          </th>
+          <th
+            class="c"
+            style="width: 96px;"
+          >
+            This teacher
+          </th>
+          <th
+            class="c"
+            style="width: 110px;"
+          >
+            School average
+          </th>
+          <th
+            class="c"
+            style="width: 96px;"
+          >
+            Difference
+          </th>
+          <th
+            class="c"
+            style="width: 118px;"
+          >
+            Band
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span
+              class="dn"
+            >
+              Equity of Treatment
+            </span>
+          </td>
+          <td
+            class="c num"
+            style="color: var(--developing-t);"
+          >
+            0.90
+          </td>
+          <td
+            class="c num"
+            style="color: var(--ink-3t);"
+          >
+            2.07
+          </td>
+          <td
+            class="c num delta dn"
+          >
+            -1.17
+          </td>
+          <td
+            class="c"
+          >
+            <span
+              class="bandpill developing"
+            >
+              Developing
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span
+              class="dn"
+            >
+              Behavioral De-escalation
+            </span>
+          </td>
+          <td
+            class="c num"
+            style="color: var(--consistent-t);"
+          >
+            1.35
+          </td>
+          <td
+            class="c num"
+            style="color: var(--ink-3t);"
+          >
+            2.28
+          </td>
+          <td
+            class="c num delta dn"
+          >
+            -0.93
+          </td>
+          <td
+            class="c"
+          >
+            <span
+              class="bandpill consistent"
+            >
+              Consistent
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span
+              class="dn"
+            >
+              Doubt-Resolution & Responsiveness
+            </span>
+          </td>
+          <td
+            class="c num"
+            style="color: var(--consistent-t);"
+          >
+            2.10
+          </td>
+          <td
+            class="c num"
+            style="color: var(--ink-3t);"
+          >
+            2.36
+          </td>
+          <td
+            class="c num delta dn"
+          >
+            -0.26
+          </td>
+          <td
+            class="c"
+          >
+            <span
+              class="bandpill consistent"
+            >
+              Consistent
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span
+              class="dn"
+            >
+              Instructional Adaptability
+            </span>
+          </td>
+          <td
+            class="c num"
+            style="color: var(--consistent-t);"
+          >
+            1.35
+          </td>
+          <td
+            class="c num"
+            style="color: var(--ink-3t);"
+          >
+            2.21
+          </td>
+          <td
+            class="c num delta dn"
+          >
+            -0.86
+          </td>
+          <td
+            class="c"
+          >
+            <span
+              class="bandpill consistent"
+            >
+              Consistent
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span
+              class="dn"
+            >
+              Decision-Making Under Ambiguity
+            </span>
+          </td>
+          <td
+            class="c num"
+            style="color: var(--consistent-t);"
+          >
+            1.80
+          </td>
+          <td
+            class="c num"
+            style="color: var(--ink-3t);"
+          >
+            2.18
+          </td>
+          <td
+            class="c num delta dn"
+          >
+            -0.38
+          </td>
+          <td
+            class="c"
+          >
+            <span
+              class="bandpill consistent"
+            >
+              Consistent
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span
+              class="dn"
+            >
+              Critical Thinking / Root-Cause Diagnosis
+            </span>
+          </td>
+          <td
+            class="c num"
+            style="color: var(--consistent-t);"
+          >
+            1.80
+          </td>
+          <td
+            class="c num"
+            style="color: var(--ink-3t);"
+          >
+            2.15
+          </td>
+          <td
+            class="c num delta dn"
+          >
+            -0.35
+          </td>
+          <td
+            class="c"
+          >
+            <span
+              class="bandpill consistent"
+            >
+              Consistent
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span
+              class="dn"
+            >
+              Leadership & Influence Style
+            </span>
+          </td>
+          <td
+            class="c num"
+            style="color: var(--consistent-t);"
+          >
+            2.10
+          </td>
+          <td
+            class="c num"
+            style="color: var(--ink-3t);"
+          >
+            2.14
+          </td>
+          <td
+            class="c num delta flat"
+          >
+            -0.04
+          </td>
+          <td
+            class="c"
+          >
+            <span
+              class="bandpill consistent"
+            >
+              Consistent
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      What the responses showed
+    </h2>
+    <span
+      class="desc"
+    >
+      Open any dimension for the coaching note behind it
+    </span>
+  </div>
+  <div
+    class="bandlegend"
+  >
+    <div
+      class="lg"
+    >
+      <span
+        class="sw"
+        style="background: var(--developing);"
+      />
+      <b
+        style="color: var(--ink-2); font-weight: 700;"
+      >
+        Developing
+      </b>
+       — 
+      An area with room to grow
+    </div>
+    <div
+      class="lg"
+    >
+      <span
+        class="sw"
+        style="background: var(--consistent);"
+      />
+      <b
+        style="color: var(--ink-2); font-weight: 700;"
+      >
+        Consistent
+      </b>
+       — 
+      Dependable in most situations
+    </div>
+    <div
+      class="lg"
+    >
+      <span
+        class="sw"
+        style="background: var(--strong);"
+      />
+      <b
+        style="color: var(--ink-2); font-weight: 700;"
+      >
+        Strong
+      </b>
+       — 
+      A visible strength to build on
+    </div>
+  </div>
+  <div
+    class="profile"
+  >
+    <div
+      class="dimrow gated"
+    >
+      <button
+        aria-controls="dim-equity"
+        aria-expanded="true"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Equity of Treatment
+          <span
+            class="gatebadge"
+          >
+            Gate dimension
+          </span>
+          <small>
+            Whether every child gets the same quality of attention, patience and benefit of the doubt.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--developing); opacity: 1;"
+          />
+          <i />
+          <i />
+        </div>
+        <span
+          class="bandpill developing"
+        >
+          Developing
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev open"
+        >
+          ▶
+        </span>
+      </button>
+      <div
+        class="dimbody"
+        id="dim-equity"
+      >
+        <p
+          class="note"
+        >
+          In the unit test scenario, this teacher ranked "Changes Kabir's mark on the spot to close the conversation and moves on, without checking any…" first. The framework places "Tells Kabir she'll review all similarly-marked answers before changing anything, then checks…" first — fixes the standard before acting on anyone's case — best equity outcome and process.
+        </p>
+        <div
+          class="act"
+        >
+          <b>
+            Where to go next
+          </b>
+          For two weeks, track who you call on and who you follow up with. A 15-minute peer observation focused only on "who did I attend to" surfaces the pattern faster than any training input.
+        </div>
+        <div
+          class="admnums"
+        >
+          <span>
+            <b>
+              0.90
+            </b>
+             
+            of 3.00 · Developing band (0 – 1.2)
+          </span>
+          <span>
+            5 items scored
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-deesc"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Behavioral De-escalation
+          <small>
+            How a heated moment is brought down without humiliation or escalation.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-doubt"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Doubt-Resolution & Responsiveness
+          <small>
+            What happens when a learner does not follow — and keeps not following.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-adapt"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Instructional Adaptability
+          <small>
+            Willingness to change method, pace or medium when the plan is not landing.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-decide"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Decision-Making Under Ambiguity
+          <small>
+            Acting sensibly when the facts are incomplete and someone still needs an answer now.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-critical"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Critical Thinking / Root-Cause Diagnosis
+          <small>
+            Separating what was observed from what was assumed before acting on it.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-lead"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Leadership & Influence Style
+          <small>
+            Effect on colleagues, parents and the wider staffroom, beyond one classroom.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      Recommended development
+    </h2>
+    <span
+      class="desc"
+    >
+      Thisai programmes matched to this profile
+    </span>
+  </div>
+  <div
+    class="recgrid"
+  >
+    <div
+      class="rec"
+    >
+      <span
+        class="tag"
+      >
+        Practice tool
+         · 
+        Equity of Treatment
+      </span>
+      <b>
+        Attention Audit
+      </b>
+      <p>
+        A tally sheet and a 15-minute peer observation protocol that records only who you called on, who you followed up with, and who you let pass. The pattern is almost never the one teachers predict.
+      </p>
+      <div
+        class="meta"
+      >
+        <span>
+          2 weeks
+        </span>
+        <span>
+          Self-paced + peer observer
+        </span>
+      </div>
+    </div>
+    <div
+      class="rec"
+    >
+      <span
+        class="tag"
+      >
+        Practice tool
+         · 
+        Instructional Adaptability
+      </span>
+      <b>
+        Mid-Lesson Checkpoints
+      </b>
+      <p>
+        Two diagnostic questions at the fifteen-minute mark, and a decision rule for what to do with the answer. Turns adaptability from instinct into a scheduled habit.
+      </p>
+      <div
+        class="meta"
+      >
+        <span>
+          3 weeks
+        </span>
+        <span>
+          Self-paced
+        </span>
+      </div>
+    </div>
+    <div
+      class="rec"
+    >
+      <span
+        class="tag"
+      >
+        Micro-course
+         · 
+        Doubt-Resolution & Responsiveness
+      </span>
+      <b>
+        The Second Explanation
+      </b>
+      <p>
+        Builds a personal bank of second and third representations for the five concepts your learners most reliably get stuck on, so an explanation that does not land has somewhere to go.
+      </p>
+      <div
+        class="meta"
+      >
+        <span>
+          4 sessions
+        </span>
+        <span>
+          Video + classroom task
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      Six-week development path
+    </h2>
+    <span
+      class="desc"
+    >
+      Sequenced from the two widest gaps
+    </span>
+  </div>
+  <ol
+    class="path"
+    style="list-style: none; margin: 0px; padding: 0px;"
+  >
+    <li
+      class="pstep"
+    >
+      <span
+        class="wk"
+      >
+        Weeks 1–2
+      </span>
+      <div>
+        <b>
+          Attention Audit — Equity of Treatment
+        </b>
+        <p>
+          A tally sheet and a 15-minute peer observation protocol that records only who you called on, who you followed up with, and who you let pass. The pattern is almost never the one teachers predict.
+        </p>
+      </div>
+    </li>
+    <li
+      class="pstep"
+    >
+      <span
+        class="wk"
+      >
+        Week 3
+      </span>
+      <div>
+        <b>
+          Peer observation, one focus only
+        </b>
+        <p>
+          A colleague watches one lesson and records nothing except equity of treatment. Twenty minutes of debrief, no written record, not used for appraisal.
+        </p>
+      </div>
+    </li>
+    <li
+      class="pstep"
+    >
+      <span
+        class="wk"
+      >
+        Weeks 4–5
+      </span>
+      <div>
+        <b>
+          Mid-Lesson Checkpoints — Instructional Adaptability
+        </b>
+        <p>
+          Two diagnostic questions at the fifteen-minute mark, and a decision rule for what to do with the answer. Turns adaptability from instinct into a scheduled habit.
+        </p>
+      </div>
+    </li>
+    <li
+      class="pstep"
+    >
+      <span
+        class="wk"
+      >
+        Week 6
+      </span>
+      <div>
+        <b>
+          Reassess and compare
+        </b>
+        <p>
+          The teacher retakes the reflection on the same grade band. The comparison worth reading is per dimension, not the index — a five-point index move can hide the only change that mattered.
+        </p>
+      </div>
+    </li>
+    <li
+      class="pstep"
+    >
+      <span
+        class="wk"
+      >
+        Ongoing
+      </span>
+      <div>
+        <b>
+          Deploy their strength in Doubt-Resolution & Responsiveness
+        </b>
+        <p>
+          Academic heads pair teachers on complementary profiles. This dimension is where this teacher would be most useful to a colleague, and mentoring is the fastest way to consolidate it.
+        </p>
+      </div>
+    </li>
+  </ol>
+  <p
+    class="foot-note"
+  >
+    The index summarises the seven dimension scores; it is not a rating and not comparable across grade bands, since each band draws on its own scenarios. School averages are computed only from teachers with a submitted profile, and shown only when at least five teachers are included. Scenarios are composites of documented classroom patterns rather than single cited studies; each item carries its own source note in the question bank.
+  </p>
+  <div
+    class="expert"
+  >
+    <button
+      aria-expanded="false"
+    >
+      <span
+        aria-hidden="true"
+        class="chev"
+      >
+        ▶
+      </span>
+       Item-level ranking data
+      <span
+        class="tag"
+      >
+        Admin only · 
+        3
+         items
+      </span>
+    </button>
+  </div>
+</main>
+`;
+
+exports[`ReportScreen > renders the teacher report (snapshot) without exam/score/fail wording 1`] = `
+<main
+  class="wrap mid"
+  data-role="teacher"
+>
+  <section
+    aria-label="Summary"
+    class="rtop"
+  >
+    <div
+      class="idn"
+    >
+      <div>
+        <h1>
+          Deepak Venkatesh
+        </h1>
+        <div
+          class="meta"
+        >
+          <span
+            class="pill"
+          >
+            High School band
+          </span>
+          <span
+            class="pill"
+          >
+            Social Science
+          </span>
+          <span
+            class="pill"
+          >
+            Assessed 11 September 2026
+          </span>
+          <span
+            class="pill arch"
+          >
+            Equity gate raised
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="body"
+    >
+      <div
+        aria-label="Teaching practice index 54 of 100"
+        class="dial"
+        role="img"
+        style="width: 168px; height: 168px;"
+      >
+        <svg
+          aria-hidden="true"
+          height="168"
+          viewBox="0 0 168 168"
+          width="168"
+        >
+          <circle
+            cx="84"
+            cy="84"
+            fill="none"
+            r="71"
+            stroke="var(--bg-4)"
+            stroke-width="15"
+          />
+          <circle
+            cx="84"
+            cy="84"
+            fill="none"
+            r="71"
+            stroke="#3f5fae"
+            stroke-dasharray="446.10615680975064"
+            stroke-dashoffset="205.20883213248527"
+            stroke-linecap="round"
+            stroke-width="15"
+          />
+        </svg>
+        <div
+          aria-hidden="true"
+          class="ctr"
+        >
+          <b
+            style="color: rgb(63, 95, 174);"
+          >
+            54
+          </b>
+          <span>
+            of 100
+          </span>
+        </div>
+      </div>
+      <div>
+        <div
+          class="mono"
+          style="color: var(--ink-3t); margin-bottom: 8px;"
+        >
+          Teaching practice index · Consistent practice
+        </div>
+        <p
+          class="frame"
+        >
+          Your responses were dependable in most situations, with clear variation between dimensions. This is the ordinary shape of an experienced teacher's profile: some instincts are sharp, one or two are still forming. The dimension rows below are where the actual signal is.
+        </p>
+        <div
+          class="kpis"
+        >
+          <div
+            class="kpi mid"
+          >
+            <div
+              class="k"
+            >
+              Strongest dimension
+            </div>
+            <div
+              class="v"
+            >
+              Doubt-Resolution
+            </div>
+            <div
+              class="s"
+            >
+              2.10 of 3.00
+            </div>
+          </div>
+          <div
+            class="kpi warn"
+          >
+            <div
+              class="k"
+            >
+              Widest gap
+            </div>
+            <div
+              class="v"
+            >
+              Equity
+            </div>
+            <div
+              class="s"
+            >
+              0.90 of 3.00
+            </div>
+          </div>
+          <div
+            class="kpi warn"
+          >
+            <div
+              class="k"
+            >
+              Equity gate
+            </div>
+            <div
+              class="v"
+            >
+              Raised
+            </div>
+            <div
+              class="s"
+            >
+              Priority conversation this cycle
+            </div>
+          </div>
+          <div
+            class="kpi"
+          >
+            <div
+              class="k"
+            >
+              Scenarios answered
+            </div>
+            <div
+              class="v"
+            >
+              35 of 35
+            </div>
+            <div
+              class="s"
+            >
+              0 strong · 6 consistent · 1 developing
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    aria-labelledby="ta-gate-h"
+    class="gate"
+    role="region"
+  >
+    <div
+      class="lbl"
+    >
+      Priority conversation · Equity of treatment
+    </div>
+    <h3
+      id="ta-gate-h"
+    >
+      This one is worth talking through before anything else.
+    </h3>
+    <p>
+      Equity of treatment sits apart from the other six dimensions. The rest describe how a teacher works; this one describes who gets the benefit of it. A classroom can be well-run and still hand most of the attention, patience and benefit of the doubt to the same few children.
+    </p>
+    <p>
+      On your profile it lands in Developing. Nothing here is a judgement on your teaching — it is the one place where a small, specific change would be felt most by the children who currently get the least of your attention.
+    </p>
+    <div
+      class="todo"
+    >
+      <b>
+        What the responses showed
+      </b>
+      In the unit test scenario, you ranked "Changes Kabir's mark on the spot to close the conversation and moves on, without checking any…" first. The framework places "Tells Kabir she'll review all similarly-marked answers before changing anything, then checks…" first — fixes the standard before acting on anyone's case — best equity outcome and process.
+    </div>
+    <div
+      class="todo"
+      style="margin-top: 10px;"
+    >
+      <b>
+        One thing to try
+      </b>
+      For two weeks, track who you call on and who you follow up with. A 15-minute peer observation focused only on "who did I attend to" surfaces the pattern faster than any training input.
+    </div>
+  </section>
+  <div
+    class="sechead"
+  >
+    <h2>
+      Your teaching practice profile
+    </h2>
+    <span
+      class="desc"
+    >
+      Seven dimensions, five scenarios each
+    </span>
+  </div>
+  <div
+    class="chartrow"
+  >
+    <div
+      class="chartcard"
+    >
+      <div
+        class="ch"
+      >
+        <h3>
+          Profile shape
+        </h3>
+        <span>
+          0 at centre · 3 at the edge
+        </span>
+      </div>
+      <p
+        class="cn"
+      >
+        The filled shape is your profile — the further a point sits from the centre, the more consistently your ranking matched the framework in that dimension.
+      </p>
+      <div
+        class="radarwrap"
+      >
+        <svg
+          aria-label="Seven-dimension profile: Equity 0.9 of 3; De-escalation 1.4 of 3; Doubt-Resolution 2.1 of 3; Adaptability 1.4 of 3; Decision-Making 1.8 of 3; Critical Thinking 1.8 of 3; Leadership 2.1 of 3"
+          height="336"
+          role="img"
+          viewBox="0 0 356 336"
+          width="356"
+        >
+          <polygon
+            fill="none"
+            points="178.0,132.0 206.1,145.6 213.1,176.0 193.6,200.4 162.4,200.4 142.9,176.0 149.9,145.6"
+            stroke="var(--line-2)"
+            stroke-dasharray="3 3"
+            stroke-width="1"
+          />
+          <polygon
+            fill="none"
+            points="178.0,96.0 234.3,123.1 248.2,184.0 209.2,232.9 146.8,232.9 107.8,184.0 121.7,123.1"
+            stroke="var(--line-2)"
+            stroke-dasharray="3 3"
+            stroke-width="1"
+          />
+          <polygon
+            fill="var(--bg-3)"
+            points="178.0,60.0 262.4,100.7 283.3,192.0 224.9,265.3 131.1,265.3 72.7,192.0 93.6,100.7"
+            stroke="var(--line-2)"
+            stroke-width="1.2"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="178"
+            y1="168"
+            y2="60"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="262.43780010654723"
+            y1="168"
+            y2="100.66310139925679"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="283.29221451563694"
+            y1="168"
+            y2="192.03226086728196"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="224.85944382469629"
+            y1="168"
+            y2="265.3046377334613"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="131.14055617530374"
+            y1="168"
+            y2="265.3046377334613"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="72.70778548436304"
+            y1="168"
+            y2="192.03226086728196"
+          />
+          <line
+            stroke="var(--line)"
+            stroke-width="1"
+            x1="178"
+            x2="93.56219989345277"
+            y1="168"
+            y2="100.66310139925679"
+          />
+          <polygon
+            fill="rgba(73,79,156,.18)"
+            points="178.0,135.6 216.0,137.7 251.7,184.8 199.1,211.8 149.9,226.4 114.8,182.4 118.9,120.9"
+            stroke="var(--brand)"
+            stroke-width="2.4"
+          />
+          <circle
+            cx="178"
+            cy="135.6"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="215.99701004794625"
+            cy="137.69839562966555"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="251.70455016094587"
+            cy="184.82258260709736"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="199.08674972111334"
+            cy="211.78708698005758"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="149.88433370518223"
+            cy="226.38278264007675"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="114.82467129061783"
+            cy="182.41935652036918"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <circle
+            cx="118.89353992541693"
+            cy="120.86417097947975"
+            fill="var(--brand)"
+            r="4"
+            stroke="#fff"
+            stroke-width="1.6"
+          />
+          <g>
+            <text
+              text-anchor="middle"
+              x="178"
+              y="35"
+            >
+              Equity
+            </text>
+            <text
+              class="val"
+              text-anchor="middle"
+              x="178"
+              y="47"
+            >
+              0.9
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="start"
+              x="281.2017556857799"
+              y="84.69934615464717"
+            >
+              De-escalation
+            </text>
+            <text
+              class="val"
+              text-anchor="start"
+              x="281.2017556857799"
+              y="96.69934615464717"
+            >
+              1.4
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="start"
+              x="306.6904844080007"
+              y="200.3727632822335"
+            >
+              Doubt-Resolution
+            </text>
+            <text
+              class="val"
+              text-anchor="start"
+              x="306.6904844080007"
+              y="212.3727632822335"
+            >
+              2.1
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="start"
+              x="235.27265356351768"
+              y="295.9278905631193"
+            >
+              Adaptability
+            </text>
+            <text
+              class="val"
+              text-anchor="start"
+              x="235.27265356351768"
+              y="307.9278905631193"
+            >
+              1.4
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="end"
+              x="120.72734643648234"
+              y="295.9278905631193"
+            >
+              Decision-Making
+            </text>
+            <text
+              class="val"
+              text-anchor="end"
+              x="120.72734643648234"
+              y="307.9278905631193"
+            >
+              1.8
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="end"
+              x="49.309515591999286"
+              y="200.3727632822335"
+            >
+              Critical Thinking
+            </text>
+            <text
+              class="val"
+              text-anchor="end"
+              x="49.309515591999286"
+              y="212.3727632822335"
+            >
+              1.8
+               / 3
+            </text>
+          </g>
+          <g>
+            <text
+              text-anchor="end"
+              x="74.79824431422006"
+              y="84.6993461546472"
+            >
+              Leadership
+            </text>
+            <text
+              class="val"
+              text-anchor="end"
+              x="74.79824431422006"
+              y="96.6993461546472"
+            >
+              2.1
+               / 3
+            </text>
+          </g>
+        </svg>
+      </div>
+      <div
+        class="radarkey"
+      >
+        <span
+          class="lg"
+        >
+          <span
+            class="sw"
+            style="background: var(--brand);"
+          />
+          Your profile
+        </span>
+      </div>
+    </div>
+    <div
+      class="chartcard"
+    >
+      <div
+        class="ch"
+      >
+        <h3>
+          Dimension by dimension
+        </h3>
+        <span>
+          strongest first
+        </span>
+      </div>
+      <p
+        class="cn"
+      >
+        Band zones are shaded behind each bar.
+      </p>
+      <div>
+        <div
+          class="dbars"
+        >
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Doubt-Resolution & Responsiveness
+              <i>
+                5 of 5 scenarios ranked
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 70%; background: var(--consistent);"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                2.10
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Leadership & Influence Style
+              <i>
+                5 of 5 scenarios ranked
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 70%; background: var(--consistent);"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                2.10
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Decision-Making Under Ambiguity
+              <i>
+                5 of 5 scenarios ranked
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 60%; background: var(--consistent);"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                1.80
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Critical Thinking
+              <i>
+                5 of 5 scenarios ranked
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 60%; background: var(--consistent);"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                1.80
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Behavioral De-escalation
+              <i>
+                5 of 5 scenarios ranked
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 45%; background: var(--consistent);"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                1.35
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Instructional Adaptability
+              <i>
+                5 of 5 scenarios ranked
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 45%; background: var(--consistent);"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--consistent-t);"
+              >
+                1.35
+              </b>
+              <span
+                class="bp"
+                style="background: var(--consistent-soft); color: var(--consistent-t);"
+              >
+                Consistent
+              </span>
+            </div>
+          </div>
+          <div
+            class="dbar"
+          >
+            <div
+              class="dbn"
+            >
+              Equity of Treatment
+              <i>
+                5 of 5 scenarios ranked
+              </i>
+            </div>
+            <div
+              aria-hidden="true"
+              class="dbtrack"
+            >
+              <span
+                class="zone z1"
+              />
+              <span
+                class="zone z2"
+              />
+              <span
+                class="zone z3"
+              />
+              <span
+                class="gl"
+                style="left: 43.33%;"
+              />
+              <span
+                class="gl"
+                style="left: 76.67%;"
+              />
+              <span
+                class="fill"
+                style="width: 30%; background: var(--developing);"
+              />
+            </div>
+            <div
+              class="dbv"
+            >
+              <b
+                style="color: var(--developing-t);"
+              >
+                0.90
+              </b>
+              <span
+                class="bp"
+                style="background: var(--developing-soft); color: var(--developing-t);"
+              >
+                Developing
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="dbaxis"
+        >
+          <span
+            class="sp"
+          />
+          <div
+            class="zones"
+          >
+            <span>
+              Developing 0–1.2
+            </span>
+            <span>
+              Consistent 1.3–2.2
+            </span>
+            <span>
+              Strong 2.3–3.0
+            </span>
+          </div>
+          <span
+            class="sp"
+          />
+        </div>
+      </div>
+      <div
+        class="sechead"
+        style="margin: 22px 0px 8px;"
+      >
+        <h2
+          style="font-size: 14px;"
+        >
+          Band distribution
+        </h2>
+        <span
+          class="desc"
+        >
+          How the seven dimensions fall
+        </span>
+      </div>
+      <div
+        aria-label="0 strong, 6 consistent, 1 developing, 0 not yet assessed"
+        class="disbar"
+        role="img"
+      >
+        <div
+          class="z"
+          style="width: 0%; background: rgb(47, 138, 82); color: rgb(255, 255, 255);"
+        />
+        <div
+          class=""
+          style="width: 85.71428571428571%; background: rgb(63, 95, 174); color: rgb(255, 255, 255);"
+        >
+          6
+        </div>
+        <div
+          class=""
+          style="width: 14.285714285714285%; background: rgb(181, 124, 18); color: rgb(255, 255, 255);"
+        >
+          1
+        </div>
+        <div
+          class="z"
+          style="width: 0%; background: var(--bg-4); color: var(--ink-2);"
+        />
+      </div>
+      <div
+        class="dislegend"
+      >
+        <span
+          class="lg"
+        >
+          <span
+            class="sw"
+            style="background: rgb(47, 138, 82);"
+          />
+          Strong 
+          0
+        </span>
+        <span
+          class="lg"
+        >
+          <span
+            class="sw"
+            style="background: rgb(63, 95, 174);"
+          />
+          Consistent 
+          6
+        </span>
+        <span
+          class="lg"
+        >
+          <span
+            class="sw"
+            style="background: rgb(181, 124, 18);"
+          />
+          Developing 
+          1
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      What you are good at, where you can grow
+    </h2>
+    <span
+      class="desc"
+    >
+      Highest and lowest of the seven dimensions
+    </span>
+  </div>
+  <div
+    class="sgrid"
+  >
+    <div
+      class="spanel up"
+    >
+      <div
+        class="hd"
+      >
+        Strength areas
+      </div>
+      <div
+        class="it"
+      >
+        <b>
+          Doubt-Resolution & Responsiveness
+          <i>
+            2.10
+            /3
+          </i>
+        </b>
+        <p>
+          What happens when a learner does not follow — and keeps not following.
+        </p>
+      </div>
+      <div
+        class="it"
+      >
+        <b>
+          Leadership & Influence Style
+          <i>
+            2.10
+            /3
+          </i>
+        </b>
+        <p>
+          Effect on colleagues, parents and the wider staffroom, beyond one classroom.
+        </p>
+      </div>
+    </div>
+    <div
+      class="spanel grow"
+    >
+      <div
+        class="hd"
+      >
+        Development areas
+      </div>
+      <div
+        class="it"
+      >
+        <b>
+          Equity of Treatment
+          <i>
+            0.90
+            /3
+          </i>
+        </b>
+        <p>
+          Whether every child gets the same quality of attention, patience and benefit of the doubt.
+        </p>
+      </div>
+      <div
+        class="it"
+      >
+        <b>
+          Instructional Adaptability
+          <i>
+            1.35
+            /3
+          </i>
+        </b>
+        <p>
+          Willingness to change method, pace or medium when the plan is not landing.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      Key insights
+    </h2>
+    <span
+      class="desc"
+    >
+      Read from your own ranking pattern
+    </span>
+  </div>
+  <div
+    class="insights"
+  >
+    <div
+      class="insight"
+    >
+      <span
+        aria-hidden="true"
+        class="ic"
+      >
+        ▲
+      </span>
+      <p>
+        Your sharpest instinct is Doubt-Resolution & Responsiveness (2.10 of 3.00). In the high school scenarios for this dimension you ranked the responses closest to where the framework places them.
+      </p>
+    </div>
+    <div
+      class="insight"
+    >
+      <span
+        aria-hidden="true"
+        class="ic"
+      >
+        ▼
+      </span>
+      <p>
+        The widest gap is Equity of Treatment (0.90 of 3.00) — far enough from your strongest dimension that it is a difference in practice, not measurement noise.
+      </p>
+    </div>
+    <div
+      class="insight"
+    >
+      <span
+        aria-hidden="true"
+        class="ic"
+      >
+        ≈
+      </span>
+      <p>
+        Your profile is uneven — more than a full point separates the best and weakest dimensions. Uneven profiles respond well to one narrow intervention rather than general professional development.
+      </p>
+    </div>
+    <div
+      class="insight"
+    >
+      <span
+        aria-hidden="true"
+        class="ic"
+      >
+        !
+      </span>
+      <p>
+        Equity of treatment sits in the Developing band. It is treated separately from the other six dimensions because it describes not how you teach but who receives it — see the priority section above.
+      </p>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      What the responses showed
+    </h2>
+    <span
+      class="desc"
+    >
+      Open any dimension for the coaching note behind it
+    </span>
+  </div>
+  <div
+    class="bandlegend"
+  >
+    <div
+      class="lg"
+    >
+      <span
+        class="sw"
+        style="background: var(--developing);"
+      />
+      <b
+        style="color: var(--ink-2); font-weight: 700;"
+      >
+        Developing
+      </b>
+       — 
+      An area with room to grow
+    </div>
+    <div
+      class="lg"
+    >
+      <span
+        class="sw"
+        style="background: var(--consistent);"
+      />
+      <b
+        style="color: var(--ink-2); font-weight: 700;"
+      >
+        Consistent
+      </b>
+       — 
+      Dependable in most situations
+    </div>
+    <div
+      class="lg"
+    >
+      <span
+        class="sw"
+        style="background: var(--strong);"
+      />
+      <b
+        style="color: var(--ink-2); font-weight: 700;"
+      >
+        Strong
+      </b>
+       — 
+      A visible strength to build on
+    </div>
+  </div>
+  <div
+    class="profile"
+  >
+    <div
+      class="dimrow gated"
+    >
+      <button
+        aria-controls="dim-equity"
+        aria-expanded="true"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Equity of Treatment
+          <span
+            class="gatebadge"
+          >
+            Gate dimension
+          </span>
+          <small>
+            Whether every child gets the same quality of attention, patience and benefit of the doubt.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--developing); opacity: 1;"
+          />
+          <i />
+          <i />
+        </div>
+        <span
+          class="bandpill developing"
+        >
+          Developing
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev open"
+        >
+          ▶
+        </span>
+      </button>
+      <div
+        class="dimbody"
+        id="dim-equity"
+      >
+        <p
+          class="note"
+        >
+          In the unit test scenario, you ranked "Changes Kabir's mark on the spot to close the conversation and moves on, without checking any…" first. The framework places "Tells Kabir she'll review all similarly-marked answers before changing anything, then checks…" first — fixes the standard before acting on anyone's case — best equity outcome and process.
+        </p>
+        <div
+          class="act"
+        >
+          <b>
+            Where to go next
+          </b>
+          For two weeks, track who you call on and who you follow up with. A 15-minute peer observation focused only on "who did I attend to" surfaces the pattern faster than any training input.
+        </div>
+      </div>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-deesc"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Behavioral De-escalation
+          <small>
+            How a heated moment is brought down without humiliation or escalation.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-doubt"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Doubt-Resolution & Responsiveness
+          <small>
+            What happens when a learner does not follow — and keeps not following.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-adapt"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Instructional Adaptability
+          <small>
+            Willingness to change method, pace or medium when the plan is not landing.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-decide"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Decision-Making Under Ambiguity
+          <small>
+            Acting sensibly when the facts are incomplete and someone still needs an answer now.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-critical"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Critical Thinking / Root-Cause Diagnosis
+          <small>
+            Separating what was observed from what was assumed before acting on it.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+    <div
+      class="dimrow"
+    >
+      <button
+        aria-controls="dim-lead"
+        aria-expanded="false"
+        class="dimtop"
+      >
+        <span
+          class="nm"
+        >
+          Leadership & Influence Style
+          <small>
+            Effect on colleagues, parents and the wider staffroom, beyond one classroom.
+          </small>
+        </span>
+        <div
+          aria-hidden="true"
+          class="bandtrack"
+        >
+          <i
+            style="background: var(--consistent); opacity: 0.42;"
+          />
+          <i
+            style="background: var(--consistent); opacity: 1;"
+          />
+          <i />
+        </div>
+        <span
+          class="bandpill consistent"
+        >
+          Consistent
+        </span>
+        <span
+          aria-hidden="true"
+          class="chev"
+        >
+          ▶
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      Recommended for you
+    </h2>
+    <span
+      class="desc"
+    >
+      Thisai programmes matched to this profile
+    </span>
+  </div>
+  <div
+    class="recgrid"
+  >
+    <div
+      class="rec"
+    >
+      <span
+        class="tag"
+      >
+        Practice tool
+         · 
+        Equity of Treatment
+      </span>
+      <b>
+        Attention Audit
+      </b>
+      <p>
+        A tally sheet and a 15-minute peer observation protocol that records only who you called on, who you followed up with, and who you let pass. The pattern is almost never the one teachers predict.
+      </p>
+      <div
+        class="meta"
+      >
+        <span>
+          2 weeks
+        </span>
+        <span>
+          Self-paced + peer observer
+        </span>
+      </div>
+    </div>
+    <div
+      class="rec"
+    >
+      <span
+        class="tag"
+      >
+        Practice tool
+         · 
+        Instructional Adaptability
+      </span>
+      <b>
+        Mid-Lesson Checkpoints
+      </b>
+      <p>
+        Two diagnostic questions at the fifteen-minute mark, and a decision rule for what to do with the answer. Turns adaptability from instinct into a scheduled habit.
+      </p>
+      <div
+        class="meta"
+      >
+        <span>
+          3 weeks
+        </span>
+        <span>
+          Self-paced
+        </span>
+      </div>
+    </div>
+    <div
+      class="rec"
+    >
+      <span
+        class="tag"
+      >
+        Micro-course
+         · 
+        Doubt-Resolution & Responsiveness
+      </span>
+      <b>
+        The Second Explanation
+      </b>
+      <p>
+        Builds a personal bank of second and third representations for the five concepts your learners most reliably get stuck on, so an explanation that does not land has somewhere to go.
+      </p>
+      <div
+        class="meta"
+      >
+        <span>
+          4 sessions
+        </span>
+        <span>
+          Video + classroom task
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="sechead"
+  >
+    <h2>
+      Your six-week development path
+    </h2>
+    <span
+      class="desc"
+    >
+      Sequenced from the two widest gaps
+    </span>
+  </div>
+  <ol
+    class="path"
+    style="list-style: none; margin: 0px; padding: 0px;"
+  >
+    <li
+      class="pstep"
+    >
+      <span
+        class="wk"
+      >
+        Weeks 1–2
+      </span>
+      <div>
+        <b>
+          Attention Audit — Equity of Treatment
+        </b>
+        <p>
+          A tally sheet and a 15-minute peer observation protocol that records only who you called on, who you followed up with, and who you let pass. The pattern is almost never the one teachers predict.
+        </p>
+      </div>
+    </li>
+    <li
+      class="pstep"
+    >
+      <span
+        class="wk"
+      >
+        Week 3
+      </span>
+      <div>
+        <b>
+          Peer observation, one focus only
+        </b>
+        <p>
+          A colleague watches one lesson and records nothing except equity of treatment. Twenty minutes of debrief, no written record, not used for appraisal.
+        </p>
+      </div>
+    </li>
+    <li
+      class="pstep"
+    >
+      <span
+        class="wk"
+      >
+        Weeks 4–5
+      </span>
+      <div>
+        <b>
+          Mid-Lesson Checkpoints — Instructional Adaptability
+        </b>
+        <p>
+          Two diagnostic questions at the fifteen-minute mark, and a decision rule for what to do with the answer. Turns adaptability from instinct into a scheduled habit.
+        </p>
+      </div>
+    </li>
+    <li
+      class="pstep"
+    >
+      <span
+        class="wk"
+      >
+        Week 6
+      </span>
+      <div>
+        <b>
+          Reassess and compare
+        </b>
+        <p>
+          Retake the reflection on the same grade band. The comparison worth reading is per dimension, not the index — a five-point index move can hide the only change that mattered.
+        </p>
+      </div>
+    </li>
+    <li
+      class="pstep"
+    >
+      <span
+        class="wk"
+      >
+        Ongoing
+      </span>
+      <div>
+        <b>
+          Use your strength in Doubt-Resolution & Responsiveness
+        </b>
+        <p>
+          Academic heads pair teachers on complementary profiles. This dimension is where you would be most useful to a colleague, and mentoring is the fastest way to consolidate it.
+        </p>
+      </div>
+    </li>
+  </ol>
+  <p
+    class="foot-note"
+  >
+    The index summarises the seven dimensions; it is not a rating and not comparable across grade bands, since each band draws on its own scenarios. No comparison against colleagues is shown or produced on this report. Scenarios are composites of documented classroom patterns rather than single cited studies.
+  </p>
+</main>
+`;
+
+exports[`buildReportView > admin view model (snapshot) 1`] = `
+{
+  "admin": true,
+  "bars": [
+    {
+      "avg": 2.36,
+      "band": "consistent",
+      "id": "doubt",
+      "label": "Doubt-Resolution & Responsiveness",
+      "pct": 70,
+      "score": 2.1,
+      "sub": "5 of 5 scenarios scored",
+    },
+    {
+      "avg": 2.14,
+      "band": "consistent",
+      "id": "lead",
+      "label": "Leadership & Influence Style",
+      "pct": 70,
+      "score": 2.1,
+      "sub": "5 of 5 scenarios scored",
+    },
+    {
+      "avg": 2.18,
+      "band": "consistent",
+      "id": "decide",
+      "label": "Decision-Making Under Ambiguity",
+      "pct": 60,
+      "score": 1.8,
+      "sub": "5 of 5 scenarios scored",
+    },
+    {
+      "avg": 2.15,
+      "band": "consistent",
+      "id": "critical",
+      "label": "Critical Thinking",
+      "pct": 60,
+      "score": 1.8,
+      "sub": "5 of 5 scenarios scored",
+    },
+    {
+      "avg": 2.28,
+      "band": "consistent",
+      "id": "deesc",
+      "label": "Behavioral De-escalation",
+      "pct": 45,
+      "score": 1.35,
+      "sub": "5 of 5 scenarios scored",
+    },
+    {
+      "avg": 2.21,
+      "band": "consistent",
+      "id": "adapt",
+      "label": "Instructional Adaptability",
+      "pct": 45,
+      "score": 1.35,
+      "sub": "5 of 5 scenarios scored",
+    },
+    {
+      "avg": 2.07,
+      "band": "developing",
+      "id": "equity",
+      "label": "Equity of Treatment",
+      "pct": 30,
+      "score": 0.9,
+      "sub": "5 of 5 scenarios scored",
+    },
+  ],
+  "barsNote": "Band zones are shaded behind each bar; the ▲ marker is the school average for that dimension.",
+  "barsTitle": "Ranked by score",
+  "cohort": {
+    "available": true,
+    "n": 11,
+    "rows": [
+      {
+        "avg": 2.07,
+        "band": "developing",
+        "diff": -1.17,
+        "id": "equity",
+        "mine": 0.9,
+        "name": "Equity of Treatment",
+      },
+      {
+        "avg": 2.28,
+        "band": "consistent",
+        "diff": -0.93,
+        "id": "deesc",
+        "mine": 1.35,
+        "name": "Behavioral De-escalation",
+      },
+      {
+        "avg": 2.36,
+        "band": "consistent",
+        "diff": -0.26,
+        "id": "doubt",
+        "mine": 2.1,
+        "name": "Doubt-Resolution & Responsiveness",
+      },
+      {
+        "avg": 2.21,
+        "band": "consistent",
+        "diff": -0.86,
+        "id": "adapt",
+        "mine": 1.35,
+        "name": "Instructional Adaptability",
+      },
+      {
+        "avg": 2.18,
+        "band": "consistent",
+        "diff": -0.38,
+        "id": "decide",
+        "mine": 1.8,
+        "name": "Decision-Making Under Ambiguity",
+      },
+      {
+        "avg": 2.15,
+        "band": "consistent",
+        "diff": -0.35,
+        "id": "critical",
+        "mine": 1.8,
+        "name": "Critical Thinking / Root-Cause Diagnosis",
+      },
+      {
+        "avg": 2.14,
+        "band": "consistent",
+        "diff": -0.04,
+        "id": "lead",
+        "mine": 2.1,
+        "name": "Leadership & Influence Style",
+      },
+    ],
+  },
+  "copy": {
+    "insightsDesc": "Read from this teacher’s own ranking pattern",
+    "pathTitle": "Six-week development path",
+    "profileDesc": "Seven dimensions, each scored 0–3 across five scenarios",
+    "profileTitle": "Teaching competency profile",
+    "recommended": "Recommended development",
+    "subtitle": "Strengths and development areas",
+  },
+  "dimRows": [
+    {
+      "action": "For two weeks, track who you call on and who you follow up with. A 15-minute peer observation focused only on "who did I attend to" surfaces the pattern faster than any training input.",
+      "adminNums": {
+        "detail": "of 3.00 · Developing band (0 – 1.2)",
+        "items": "5 items scored",
+        "score": "0.90",
+      },
+      "band": "developing",
+      "bandLabel": "Developing",
+      "blurb": "Whether every child gets the same quality of attention, patience and benefit of the doubt.",
+      "gate": true,
+      "id": "equity",
+      "name": "Equity of Treatment",
+      "note": "In the unit test scenario, this teacher ranked "Changes Kabir's mark on the spot to close the conversation and moves on, without checking any…" first. The framework places "Tells Kabir she'll review all similarly-marked answers before changing anything, then checks…" first — fixes the standard before acting on anyone's case — best equity outcome and process.",
+      "short": "Equity",
+    },
+    {
+      "action": "Practise the sequence: remove the audience, drop your voice, address the behaviour privately. Rehearse it on one recurring situation before the next incident.",
+      "adminNums": {
+        "detail": "of 3.00 · Consistent band (1.3 – 2.2)",
+        "items": "5 items scored",
+        "score": "1.35",
+      },
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "How a heated moment is brought down without humiliation or escalation.",
+      "gate": false,
+      "id": "deesc",
+      "name": "Behavioral De-escalation",
+      "note": "In the after receiving a lower-than-expected grade back scenario, this teacher ranked "Firmly tells him to lower his voice and defends the grade on the spot in front of everyone" first. The framework places "Stays calm, acknowledges his frustration without agreeing or disagreeing with the grade yet…" first — de-escalates the public confrontation and moves the actual dispute to a setting where it can be resolved properly.",
+      "short": "De-escalation",
+    },
+    {
+      "action": "When an explanation has not landed twice, change the representation — draw it, act it, or hand it to a peer — rather than changing the volume.",
+      "adminNums": {
+        "detail": "of 3.00 · Consistent band (1.3 – 2.2)",
+        "items": "5 items scored",
+        "score": "2.10",
+      },
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "What happens when a learner does not follow — and keeps not following.",
+      "gate": false,
+      "id": "doubt",
+      "name": "Doubt-Resolution & Responsiveness",
+      "note": "In the class 10 student's question about a scenario, this teacher ranked "Answers the current question fully but doesn't address the earlier gap it reveals" first. The framework places "Diagnoses the gap accurately, briefly bridges it in the moment, and arranges focused revision…" first — reads the doubt as revealing a root gap, not just a surface question, and acts on it with exam timing in mind.",
+      "short": "Doubt-Resolution",
+    },
+    {
+      "action": "Build one deliberate checkpoint into every long session: two diagnostic questions at the 15-minute mark, then decide whether to continue or switch.",
+      "adminNums": {
+        "detail": "of 3.00 · Consistent band (1.3 – 2.2)",
+        "items": "5 items scored",
+        "score": "1.35",
+      },
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "Willingness to change method, pace or medium when the plan is not landing.",
+      "gate": false,
+      "id": "adapt",
+      "name": "Instructional Adaptability",
+      "note": "In the single class 10 section scenario, this teacher ranked "Teaches to the middle of the class, accepting that both ends are somewhat underserved" first. The framework places "Splits practice time so exam-ready students get advanced problems while she works directly wi…" first — actively differentiates for both ends of the readiness range in the same class period.",
+      "short": "Adaptability",
+    },
+    {
+      "action": "A phrase worth practising: "Here is what I know today, here is what I will confirm, and here is when I will come back to you."",
+      "adminNums": {
+        "detail": "of 3.00 · Consistent band (1.3 – 2.2)",
+        "items": "5 items scored",
+        "score": "1.80",
+      },
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "Acting sensibly when the facts are incomplete and someone still needs an answer now.",
+      "gate": false,
+      "id": "decide",
+      "name": "Decision-Making Under Ambiguity",
+      "note": "In the mid-class scenario, this teacher ranked "Tells the staff member the student will come 'after this topic,' without checking if it's act…" first. The framework places "Gets a quick one-line clarification on urgency from the staff member, hands the class a short…" first — gathers just enough information to make a reasonable call under real time pressure.",
+      "short": "Decision-Making",
+    },
+    {
+      "action": "Before acting on a suspicion, gather one piece of first-hand evidence — ask the learner to talk you through their own work.",
+      "adminNums": {
+        "detail": "of 3.00 · Consistent band (1.3 – 2.2)",
+        "items": "5 items scored",
+        "score": "1.80",
+      },
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "Separating what was observed from what was assumed before acting on it.",
+      "gate": false,
+      "id": "critical",
+      "name": "Critical Thinking / Root-Cause Diagnosis",
+      "note": "In the whole class 10 section performs unexpectedly scenario, this teacher ranked "Assumes the class collectively didn't revise enough and assigns extra homework without furthe…" first. The framework places "Reviews her own teaching approach and the assessment questions to find the actual mismatch, r…" first — investigates the actual mismatch between apparent engagement and results before assigning cause.",
+      "short": "Critical Thinking",
+    },
+    {
+      "action": "Next time you raise a concern, attach an offer: "let me run it in one section and bring back what happened."",
+      "adminNums": {
+        "detail": "of 3.00 · Consistent band (1.3 – 2.2)",
+        "items": "5 items scored",
+        "score": "2.10",
+      },
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "Effect on colleagues, parents and the wider staffroom, beyond one classroom.",
+      "gate": false,
+      "id": "lead",
+      "name": "Leadership & Influence Style",
+      "note": "The best response was identified in the scenarios answered (represents the decision credibly and calmly while remaining genuinely open to the parent's input) but the weakest option was not ranked last — "Backs down from the original decision immediately just to end the confrontation" was placed below "Gets visibly defensive and argues back in front of the coordinator". The instinct is right; the reading of what does most harm is less sharp.",
+      "short": "Leadership",
+    },
+  ],
+  "distribution": {
+    "consistent": 6,
+    "developing": 1,
+    "strong": 0,
+    "unscored": 0,
+  },
+  "equityGate": {
+    "action": "For two weeks, track who you call on and who you follow up with. A 15-minute peer observation focused only on "who did I attend to" surfaces the pattern faster than any training input.",
+    "body": "On this profile it lands in Developing. That is a coaching conversation to schedule, not a performance record to file — the pattern below is specific enough to act on within a fortnight.",
+    "note": "In the unit test scenario, this teacher ranked "Changes Kabir's mark on the spot to close the conversation and moves on, without checking any…" first. The framework places "Tells Kabir she'll review all similarly-marked answers before changing anything, then checks…" first — fixes the standard before acting on anyone's case — best equity outcome and process.",
+  },
+  "equityPill": true,
+  "footNote": "The index summarises the seven dimension scores; it is not a rating and not comparable across grade bands, since each band draws on its own scenarios. School averages are computed only from teachers with a submitted profile, and shown only when at least five teachers are included. Scenarios are composites of documented classroom patterns rather than single cited studies; each item carries its own source note in the question bank.",
+  "frame": "Responses were dependable in most situations, with clear variation between dimensions — the ordinary shape of an experienced teacher's profile. The dimension rows below carry the signal worth acting on, not the index.",
+  "growth": [
+    {
+      "blurb": "Whether every child gets the same quality of attention, patience and benefit of the doubt.",
+      "id": "equity",
+      "name": "Equity of Treatment",
+      "score": "0.90",
+    },
+    {
+      "blurb": "Willingness to change method, pace or medium when the plan is not landing.",
+      "id": "adapt",
+      "name": "Instructional Adaptability",
+      "score": "1.35",
+    },
+  ],
+  "index": {
+    "band": "consistent",
+    "color": "#3f5fae",
+    "frame": "Responses were dependable in most situations, with clear variation between dimensions — the ordinary shape of an experienced teacher's profile. The dimension rows below carry the signal worth acting on, not the index.",
+    "label": "Consistent practice",
+    "value": 54,
+  },
+  "indexLine": "Teaching practice index · Consistent practice",
+  "insights": [
+    {
+      "ic": "▲",
+      "text": "This teacher's sharpest instinct is Doubt-Resolution & Responsiveness (2.10 of 3.00). In the high school scenarios for this dimension this teacher ranked the responses closest to where the framework places them.",
+    },
+    {
+      "ic": "▼",
+      "text": "The widest gap is Equity of Treatment (0.90 of 3.00) — far enough from their strongest dimension that it is a difference in practice, not measurement noise.",
+    },
+    {
+      "ic": "≈",
+      "text": "This teacher's profile is uneven — more than a full point separates the best and weakest dimensions. Uneven profiles respond well to one narrow intervention rather than general professional development.",
+    },
+    {
+      "ic": "!",
+      "text": "Equity of treatment sits in the Developing band. It is treated separately from the other six dimensions because it describes not how a teacher teaches but who receives it — see the priority section above.",
+    },
+  ],
+  "itemLevel": [
+    {
+      "dimension": "Equity of Treatment",
+      "item_id": "HS-EQ-01",
+      "key": [
+        "A",
+        "B",
+        "C",
+        "D",
+      ],
+      "ms_on_item": 5794,
+      "note": "",
+      "ranked": [
+        "B",
+        "C",
+        "A",
+        "D",
+      ],
+      "score": 1.5,
+      "source": "Composite pattern reflecting teacher-expectancy/halo-effect literature. Not a specific cited study.",
+    },
+    {
+      "dimension": "Behavioral De-escalation",
+      "item_id": "HS-DE-01",
+      "key": [
+        "A",
+        "B",
+        "C",
+        "D",
+      ],
+      "ms_on_item": 5243,
+      "note": "",
+      "ranked": [
+        "B",
+        "D",
+        "A",
+        "C",
+      ],
+      "score": 0.75,
+      "source": "Composite — grade-dispute de-escalation guidance for board-exam-track high schoolers. Not a specific cited study.",
+    },
+    {
+      "dimension": "Doubt-Resolution & Responsiveness",
+      "item_id": "HS-DR-01",
+      "key": [
+        "A",
+        "B",
+        "C",
+        "D",
+      ],
+      "ms_on_item": 3316,
+      "note": "",
+      "ranked": [
+        "B",
+        "A",
+        "D",
+        "C",
+      ],
+      "score": 1.5,
+      "source": "Composite — foundational-gap diagnosis guidance under exam-timeline pressure. Not a specific cited study.",
+    },
+  ],
+  "kpis": [
+    {
+      "cls": "mid",
+      "k": "Strongest dimension",
+      "s": "2.10 of 3.00",
+      "v": "Doubt-Resolution",
+    },
+    {
+      "cls": "warn",
+      "k": "Widest gap",
+      "s": "0.90 of 3.00",
+      "v": "Equity",
+    },
+    {
+      "cls": "warn",
+      "k": "Equity gate",
+      "s": "Priority conversation this cycle",
+      "v": "Raised",
+    },
+    {
+      "cls": "",
+      "color": "var(--developing-t)",
+      "k": "vs school average",
+      "s": "11 teachers assessed · 35 of 35 scenarios answered",
+      "v": "-19 pts",
+    },
+  ],
+  "name": "Deepak Venkatesh",
+  "path": [
+    {
+      "d": "A tally sheet and a 15-minute peer observation protocol that records only who you called on, who you followed up with, and who you let pass. The pattern is almost never the one teachers predict.",
+      "t": "Attention Audit — Equity of Treatment",
+      "wk": "Weeks 1–2",
+    },
+    {
+      "d": "A colleague watches one lesson and records nothing except equity of treatment. Twenty minutes of debrief, no written record, not used for appraisal.",
+      "t": "Peer observation, one focus only",
+      "wk": "Week 3",
+    },
+    {
+      "d": "Two diagnostic questions at the fifteen-minute mark, and a decision rule for what to do with the answer. Turns adaptability from instinct into a scheduled habit.",
+      "t": "Mid-Lesson Checkpoints — Instructional Adaptability",
+      "wk": "Weeks 4–5",
+    },
+    {
+      "d": "The teacher retakes the reflection on the same grade band. The comparison worth reading is per dimension, not the index — a five-point index move can hide the only change that mattered.",
+      "t": "Reassess and compare",
+      "wk": "Week 6",
+    },
+    {
+      "d": "Academic heads pair teachers on complementary profiles. This dimension is where this teacher would be most useful to a colleague, and mentoring is the fastest way to consolidate it.",
+      "t": "Deploy their strength in Doubt-Resolution & Responsiveness",
+      "wk": "Ongoing",
+    },
+  ],
+  "pills": [
+    "High School band",
+    "Social Science",
+    "TCH-0501",
+    "Assessed 11 September 2026",
+  ],
+  "preview": false,
+  "previewBanner": null,
+  "programmes": [
+    {
+      "dimShort": "Equity of Treatment",
+      "id": "equity",
+      "kind": "Practice tool",
+      "mode": "Self-paced + peer observer",
+      "title": "Attention Audit",
+      "weeks": "2 weeks",
+      "what": "A tally sheet and a 15-minute peer observation protocol that records only who you called on, who you followed up with, and who you let pass. The pattern is almost never the one teachers predict.",
+    },
+    {
+      "dimShort": "Instructional Adaptability",
+      "id": "adapt",
+      "kind": "Practice tool",
+      "mode": "Self-paced",
+      "title": "Mid-Lesson Checkpoints",
+      "weeks": "3 weeks",
+      "what": "Two diagnostic questions at the fifteen-minute mark, and a decision rule for what to do with the answer. Turns adaptability from instinct into a scheduled habit.",
+    },
+    {
+      "dimShort": "Doubt-Resolution & Responsiveness",
+      "id": "doubt",
+      "kind": "Micro-course",
+      "mode": "Video + classroom task",
+      "title": "The Second Explanation",
+      "weeks": "4 sessions",
+      "what": "Builds a personal bank of second and third representations for the five concepts your learners most reliably get stuck on, so an explanation that does not land has somewhere to go.",
+    },
+  ],
+  "radar": [
+    {
+      "avg": 2.07,
+      "id": "equity",
+      "score": 0.9,
+      "short": "Equity",
+    },
+    {
+      "avg": 2.28,
+      "id": "deesc",
+      "score": 1.35,
+      "short": "De-escalation",
+    },
+    {
+      "avg": 2.36,
+      "id": "doubt",
+      "score": 2.1,
+      "short": "Doubt-Resolution",
+    },
+    {
+      "avg": 2.21,
+      "id": "adapt",
+      "score": 1.35,
+      "short": "Adaptability",
+    },
+    {
+      "avg": 2.18,
+      "id": "decide",
+      "score": 1.8,
+      "short": "Decision-Making",
+    },
+    {
+      "avg": 2.15,
+      "id": "critical",
+      "score": 1.8,
+      "short": "Critical Thinking",
+    },
+    {
+      "avg": 2.14,
+      "id": "lead",
+      "score": 2.1,
+      "short": "Leadership",
+    },
+  ],
+  "radarNote": "The filled shape is this profile, and the dashed outline is the average of the teachers assessed at the school.",
+  "readout": true,
+  "role": "admin",
+  "showAreas": true,
+  "strengths": [
+    {
+      "blurb": "What happens when a learner does not follow — and keeps not following.",
+      "id": "doubt",
+      "name": "Doubt-Resolution & Responsiveness",
+      "score": "2.10",
+    },
+    {
+      "blurb": "Effect on colleagues, parents and the wider staffroom, beyond one classroom.",
+      "id": "lead",
+      "name": "Leadership & Influence Style",
+      "score": "2.10",
+    },
+  ],
+  "validity": {
+    "reasons": [
+      "Median time per item was 4.7s (under 8s).",
+    ],
+  },
+}
+`;
+
+exports[`buildReportView > teacher view model (snapshot) 1`] = `
+{
+  "admin": false,
+  "bars": [
+    {
+      "avg": null,
+      "band": "consistent",
+      "id": "doubt",
+      "label": "Doubt-Resolution & Responsiveness",
+      "pct": 70,
+      "score": 2.1,
+      "sub": "5 of 5 scenarios ranked",
+    },
+    {
+      "avg": null,
+      "band": "consistent",
+      "id": "lead",
+      "label": "Leadership & Influence Style",
+      "pct": 70,
+      "score": 2.1,
+      "sub": "5 of 5 scenarios ranked",
+    },
+    {
+      "avg": null,
+      "band": "consistent",
+      "id": "decide",
+      "label": "Decision-Making Under Ambiguity",
+      "pct": 60,
+      "score": 1.8,
+      "sub": "5 of 5 scenarios ranked",
+    },
+    {
+      "avg": null,
+      "band": "consistent",
+      "id": "critical",
+      "label": "Critical Thinking",
+      "pct": 60,
+      "score": 1.8,
+      "sub": "5 of 5 scenarios ranked",
+    },
+    {
+      "avg": null,
+      "band": "consistent",
+      "id": "deesc",
+      "label": "Behavioral De-escalation",
+      "pct": 45,
+      "score": 1.35,
+      "sub": "5 of 5 scenarios ranked",
+    },
+    {
+      "avg": null,
+      "band": "consistent",
+      "id": "adapt",
+      "label": "Instructional Adaptability",
+      "pct": 45,
+      "score": 1.35,
+      "sub": "5 of 5 scenarios ranked",
+    },
+    {
+      "avg": null,
+      "band": "developing",
+      "id": "equity",
+      "label": "Equity of Treatment",
+      "pct": 30,
+      "score": 0.9,
+      "sub": "5 of 5 scenarios ranked",
+    },
+  ],
+  "barsNote": "Band zones are shaded behind each bar.",
+  "barsTitle": "Dimension by dimension",
+  "cohort": null,
+  "copy": {
+    "insightsDesc": "Read from your own ranking pattern",
+    "pathTitle": "Your six-week development path",
+    "profileDesc": "Seven dimensions, five scenarios each",
+    "profileTitle": "Your teaching practice profile",
+    "recommended": "Recommended for you",
+    "subtitle": "What you are good at, where you can grow",
+  },
+  "dimRows": [
+    {
+      "action": "For two weeks, track who you call on and who you follow up with. A 15-minute peer observation focused only on "who did I attend to" surfaces the pattern faster than any training input.",
+      "adminNums": null,
+      "band": "developing",
+      "bandLabel": "Developing",
+      "blurb": "Whether every child gets the same quality of attention, patience and benefit of the doubt.",
+      "gate": true,
+      "id": "equity",
+      "name": "Equity of Treatment",
+      "note": "In the unit test scenario, you ranked "Changes Kabir's mark on the spot to close the conversation and moves on, without checking any…" first. The framework places "Tells Kabir she'll review all similarly-marked answers before changing anything, then checks…" first — fixes the standard before acting on anyone's case — best equity outcome and process.",
+      "short": "Equity",
+    },
+    {
+      "action": "Practise the sequence: remove the audience, drop your voice, address the behaviour privately. Rehearse it on one recurring situation before the next incident.",
+      "adminNums": null,
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "How a heated moment is brought down without humiliation or escalation.",
+      "gate": false,
+      "id": "deesc",
+      "name": "Behavioral De-escalation",
+      "note": "In the after receiving a lower-than-expected grade back scenario, you ranked "Firmly tells him to lower his voice and defends the grade on the spot in front of everyone" first. The framework places "Stays calm, acknowledges his frustration without agreeing or disagreeing with the grade yet…" first — de-escalates the public confrontation and moves the actual dispute to a setting where it can be resolved properly.",
+      "short": "De-escalation",
+    },
+    {
+      "action": "When an explanation has not landed twice, change the representation — draw it, act it, or hand it to a peer — rather than changing the volume.",
+      "adminNums": null,
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "What happens when a learner does not follow — and keeps not following.",
+      "gate": false,
+      "id": "doubt",
+      "name": "Doubt-Resolution & Responsiveness",
+      "note": "In the class 10 student's question about a scenario, you ranked "Answers the current question fully but doesn't address the earlier gap it reveals" first. The framework places "Diagnoses the gap accurately, briefly bridges it in the moment, and arranges focused revision…" first — reads the doubt as revealing a root gap, not just a surface question, and acts on it with exam timing in mind.",
+      "short": "Doubt-Resolution",
+    },
+    {
+      "action": "Build one deliberate checkpoint into every long session: two diagnostic questions at the 15-minute mark, then decide whether to continue or switch.",
+      "adminNums": null,
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "Willingness to change method, pace or medium when the plan is not landing.",
+      "gate": false,
+      "id": "adapt",
+      "name": "Instructional Adaptability",
+      "note": "In the single class 10 section scenario, you ranked "Teaches to the middle of the class, accepting that both ends are somewhat underserved" first. The framework places "Splits practice time so exam-ready students get advanced problems while she works directly wi…" first — actively differentiates for both ends of the readiness range in the same class period.",
+      "short": "Adaptability",
+    },
+    {
+      "action": "A phrase worth practising: "Here is what I know today, here is what I will confirm, and here is when I will come back to you."",
+      "adminNums": null,
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "Acting sensibly when the facts are incomplete and someone still needs an answer now.",
+      "gate": false,
+      "id": "decide",
+      "name": "Decision-Making Under Ambiguity",
+      "note": "In the mid-class scenario, you ranked "Tells the staff member the student will come 'after this topic,' without checking if it's act…" first. The framework places "Gets a quick one-line clarification on urgency from the staff member, hands the class a short…" first — gathers just enough information to make a reasonable call under real time pressure.",
+      "short": "Decision-Making",
+    },
+    {
+      "action": "Before acting on a suspicion, gather one piece of first-hand evidence — ask the learner to talk you through their own work.",
+      "adminNums": null,
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "Separating what was observed from what was assumed before acting on it.",
+      "gate": false,
+      "id": "critical",
+      "name": "Critical Thinking / Root-Cause Diagnosis",
+      "note": "In the whole class 10 section performs unexpectedly scenario, you ranked "Assumes the class collectively didn't revise enough and assigns extra homework without furthe…" first. The framework places "Reviews her own teaching approach and the assessment questions to find the actual mismatch, r…" first — investigates the actual mismatch between apparent engagement and results before assigning cause.",
+      "short": "Critical Thinking",
+    },
+    {
+      "action": "Next time you raise a concern, attach an offer: "let me run it in one section and bring back what happened."",
+      "adminNums": null,
+      "band": "consistent",
+      "bandLabel": "Consistent",
+      "blurb": "Effect on colleagues, parents and the wider staffroom, beyond one classroom.",
+      "gate": false,
+      "id": "lead",
+      "name": "Leadership & Influence Style",
+      "note": "The best response was identified in the scenarios answered (represents the decision credibly and calmly while remaining genuinely open to the parent's input) but the weakest option was not ranked last — "Backs down from the original decision immediately just to end the confrontation" was placed below "Gets visibly defensive and argues back in front of the coordinator". Your instinct is right; the reading of what does most harm is less sharp.",
+      "short": "Leadership",
+    },
+  ],
+  "distribution": {
+    "consistent": 6,
+    "developing": 1,
+    "strong": 0,
+    "unscored": 0,
+  },
+  "equityGate": {
+    "action": "For two weeks, track who you call on and who you follow up with. A 15-minute peer observation focused only on "who did I attend to" surfaces the pattern faster than any training input.",
+    "body": "On your profile it lands in Developing. Nothing here is a judgement on your teaching — it is the one place where a small, specific change would be felt most by the children who currently get the least of your attention.",
+    "note": "In the unit test scenario, you ranked "Changes Kabir's mark on the spot to close the conversation and moves on, without checking any…" first. The framework places "Tells Kabir she'll review all similarly-marked answers before changing anything, then checks…" first — fixes the standard before acting on anyone's case — best equity outcome and process.",
+  },
+  "equityPill": true,
+  "footNote": "The index summarises the seven dimensions; it is not a rating and not comparable across grade bands, since each band draws on its own scenarios. No comparison against colleagues is shown or produced on this report. Scenarios are composites of documented classroom patterns rather than single cited studies.",
+  "frame": "Your responses were dependable in most situations, with clear variation between dimensions. This is the ordinary shape of an experienced teacher's profile: some instincts are sharp, one or two are still forming. The dimension rows below are where the actual signal is.",
+  "growth": [
+    {
+      "blurb": "Whether every child gets the same quality of attention, patience and benefit of the doubt.",
+      "id": "equity",
+      "name": "Equity of Treatment",
+      "score": "0.90",
+    },
+    {
+      "blurb": "Willingness to change method, pace or medium when the plan is not landing.",
+      "id": "adapt",
+      "name": "Instructional Adaptability",
+      "score": "1.35",
+    },
+  ],
+  "index": {
+    "band": "consistent",
+    "color": "#3f5fae",
+    "frame": "Your responses were dependable in most situations, with clear variation between dimensions. This is the ordinary shape of an experienced teacher's profile: some instincts are sharp, one or two are still forming. The dimension rows below are where the actual signal is.",
+    "label": "Consistent practice",
+    "value": 54,
+  },
+  "indexLine": "Teaching practice index · Consistent practice",
+  "insights": [
+    {
+      "ic": "▲",
+      "text": "Your sharpest instinct is Doubt-Resolution & Responsiveness (2.10 of 3.00). In the high school scenarios for this dimension you ranked the responses closest to where the framework places them.",
+    },
+    {
+      "ic": "▼",
+      "text": "The widest gap is Equity of Treatment (0.90 of 3.00) — far enough from your strongest dimension that it is a difference in practice, not measurement noise.",
+    },
+    {
+      "ic": "≈",
+      "text": "Your profile is uneven — more than a full point separates the best and weakest dimensions. Uneven profiles respond well to one narrow intervention rather than general professional development.",
+    },
+    {
+      "ic": "!",
+      "text": "Equity of treatment sits in the Developing band. It is treated separately from the other six dimensions because it describes not how you teach but who receives it — see the priority section above.",
+    },
+  ],
+  "itemLevel": null,
+  "kpis": [
+    {
+      "cls": "mid",
+      "k": "Strongest dimension",
+      "s": "2.10 of 3.00",
+      "v": "Doubt-Resolution",
+    },
+    {
+      "cls": "warn",
+      "k": "Widest gap",
+      "s": "0.90 of 3.00",
+      "v": "Equity",
+    },
+    {
+      "cls": "warn",
+      "k": "Equity gate",
+      "s": "Priority conversation this cycle",
+      "v": "Raised",
+    },
+    {
+      "cls": "",
+      "k": "Scenarios answered",
+      "s": "0 strong · 6 consistent · 1 developing",
+      "v": "35 of 35",
+    },
+  ],
+  "name": "Deepak Venkatesh",
+  "path": [
+    {
+      "d": "A tally sheet and a 15-minute peer observation protocol that records only who you called on, who you followed up with, and who you let pass. The pattern is almost never the one teachers predict.",
+      "t": "Attention Audit — Equity of Treatment",
+      "wk": "Weeks 1–2",
+    },
+    {
+      "d": "A colleague watches one lesson and records nothing except equity of treatment. Twenty minutes of debrief, no written record, not used for appraisal.",
+      "t": "Peer observation, one focus only",
+      "wk": "Week 3",
+    },
+    {
+      "d": "Two diagnostic questions at the fifteen-minute mark, and a decision rule for what to do with the answer. Turns adaptability from instinct into a scheduled habit.",
+      "t": "Mid-Lesson Checkpoints — Instructional Adaptability",
+      "wk": "Weeks 4–5",
+    },
+    {
+      "d": "Retake the reflection on the same grade band. The comparison worth reading is per dimension, not the index — a five-point index move can hide the only change that mattered.",
+      "t": "Reassess and compare",
+      "wk": "Week 6",
+    },
+    {
+      "d": "Academic heads pair teachers on complementary profiles. This dimension is where you would be most useful to a colleague, and mentoring is the fastest way to consolidate it.",
+      "t": "Use your strength in Doubt-Resolution & Responsiveness",
+      "wk": "Ongoing",
+    },
+  ],
+  "pills": [
+    "High School band",
+    "Social Science",
+    "Assessed 11 September 2026",
+  ],
+  "preview": false,
+  "previewBanner": null,
+  "programmes": [
+    {
+      "dimShort": "Equity of Treatment",
+      "id": "equity",
+      "kind": "Practice tool",
+      "mode": "Self-paced + peer observer",
+      "title": "Attention Audit",
+      "weeks": "2 weeks",
+      "what": "A tally sheet and a 15-minute peer observation protocol that records only who you called on, who you followed up with, and who you let pass. The pattern is almost never the one teachers predict.",
+    },
+    {
+      "dimShort": "Instructional Adaptability",
+      "id": "adapt",
+      "kind": "Practice tool",
+      "mode": "Self-paced",
+      "title": "Mid-Lesson Checkpoints",
+      "weeks": "3 weeks",
+      "what": "Two diagnostic questions at the fifteen-minute mark, and a decision rule for what to do with the answer. Turns adaptability from instinct into a scheduled habit.",
+    },
+    {
+      "dimShort": "Doubt-Resolution & Responsiveness",
+      "id": "doubt",
+      "kind": "Micro-course",
+      "mode": "Video + classroom task",
+      "title": "The Second Explanation",
+      "weeks": "4 sessions",
+      "what": "Builds a personal bank of second and third representations for the five concepts your learners most reliably get stuck on, so an explanation that does not land has somewhere to go.",
+    },
+  ],
+  "radar": [
+    {
+      "avg": null,
+      "id": "equity",
+      "score": 0.9,
+      "short": "Equity",
+    },
+    {
+      "avg": null,
+      "id": "deesc",
+      "score": 1.35,
+      "short": "De-escalation",
+    },
+    {
+      "avg": null,
+      "id": "doubt",
+      "score": 2.1,
+      "short": "Doubt-Resolution",
+    },
+    {
+      "avg": null,
+      "id": "adapt",
+      "score": 1.35,
+      "short": "Adaptability",
+    },
+    {
+      "avg": null,
+      "id": "decide",
+      "score": 1.8,
+      "short": "Decision-Making",
+    },
+    {
+      "avg": null,
+      "id": "critical",
+      "score": 1.8,
+      "short": "Critical Thinking",
+    },
+    {
+      "avg": null,
+      "id": "lead",
+      "score": 2.1,
+      "short": "Leadership",
+    },
+  ],
+  "radarNote": "The filled shape is your profile — the further a point sits from the centre, the more consistently your ranking matched the framework in that dimension.",
+  "readout": false,
+  "role": "teacher",
+  "showAreas": true,
+  "strengths": [
+    {
+      "blurb": "What happens when a learner does not follow — and keeps not following.",
+      "id": "doubt",
+      "name": "Doubt-Resolution & Responsiveness",
+      "score": "2.10",
+    },
+    {
+      "blurb": "Effect on colleagues, parents and the wider staffroom, beyond one classroom.",
+      "id": "lead",
+      "name": "Leadership & Influence Style",
+      "score": "2.10",
+    },
+  ],
+  "validity": null,
+}
+`;
