@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { TeacherAssessmentRoutes } from './features/teacher-assessment';
 import { DevAccountBar } from './platform/DevAccountBar';
+import { isMvp } from './features/teacher-assessment/model/config';
 
 const qc = new QueryClient({ defaultOptions: { queries: { refetchOnWindowFocus: false } } });
 
@@ -13,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={qc}>
       <BrowserRouter>
-        {import.meta.env.DEV && <DevAccountBar />}
+        {import.meta.env.DEV && !isMvp() && <DevAccountBar />}
         <Routes>
           <Route path="/teacher-assessment/*" element={<TeacherAssessmentRoutes />} />
           <Route path="*" element={<Navigate to="/teacher-assessment" replace />} />

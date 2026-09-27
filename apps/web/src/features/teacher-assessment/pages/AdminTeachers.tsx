@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminCohort, useAdminTeachers } from '../api/queries';
 import { useModuleSession } from '../guards/RequireModuleAccess';
+import { MvpResetButton } from '../components/shell/MvpResetButton';
 import { CohortChart } from '../components/admin/CohortChart';
 import { RosterTable } from '../components/admin/RosterTable';
 import { BASE_PATH, ModuleHeader } from '../components/shell/ModuleHeader';
@@ -45,7 +46,7 @@ export default function AdminTeachers() {
         <div className="pagehead">
           <div><h1>Teaching practice — school view</h1>
             <div className="sub">{submitted} teacher{submitted === 1 ? '' : 's'} assessed · {all.length - submitted} in progress · {me.institution_name}{access.cycle_name ? ' · ' + access.cycle_name : ''}</div></div>
-          <div className="acts"><button className="btn ghost sm" onClick={exportCsv} disabled={!rows.length}>Export CSV</button></div>
+          <div className="acts"><MvpResetButton /><button className="btn ghost sm" onClick={exportCsv} disabled={!rows.length}>Export CSV</button></div>
         </div>
 
         <div className="sechead"><h2>Cohort averages</h2><span className="desc">Mean of each dimension across submitted profiles · shown from five teachers</span></div>

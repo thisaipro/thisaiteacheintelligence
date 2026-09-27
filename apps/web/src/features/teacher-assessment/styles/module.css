@@ -102,3 +102,7 @@
 .ta .dropzone .ph{all:unset;box-sizing:border-box;display:flex;align-items:center;width:100%;min-height:56px;font-size:13px;color:var(--ink-3t);padding:0 16px;cursor:pointer;border-radius:13px}
 .ta .dropzone .ph:disabled{cursor:default}
 .ta .dropzone .ph:focus-visible{outline:3px solid rgba(73,79,156,.55);outline-offset:2px}
+
+/* Header tabs scroll sideways rather than overflow when there are four (MVP). */
+.ta .hud .ptabs{max-width:100%;overflow-x:auto;scrollbar-width:none}
+.ta .hud .ptabs::-webkit-scrollbar{display:none}

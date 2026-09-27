@@ -2,7 +2,7 @@
    Ports the prototype's twelve-teacher roster and its deterministic demo answers. */
 import { DIMENSIONS, dimByName, type DimensionId } from '@thisai/ta-shared';
 import type { Cycle } from '../access';
-import { DEV_INSTITUTION } from '../auth/identity';
+import { DEV_INSTITUTION } from '../auth/dev-institution';
 import { Presenter, profileRowFrom } from '../present';
 import type { MemoryRepo } from '../repo/memory';
 import type { ItemRow } from '../repo/types';

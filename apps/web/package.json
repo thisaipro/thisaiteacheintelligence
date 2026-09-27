@@ -13,6 +13,7 @@
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
     "@tanstack/react-query": "^5.62.0",
+    "@thisai/ta-api": "*",
     "@thisai/ta-shared": "*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

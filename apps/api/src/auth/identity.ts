@@ -25,7 +25,8 @@ export function thisaiIdentity(meUrl: string, fetchImpl: typeof fetch = fetch): 
   };
 }
 
-export const DEV_INSTITUTION = { id: 'inst-stpeters', name: "St. Peter's Matriculation, Chennai" };
+import { DEV_INSTITUTION } from './dev-institution';
+export { DEV_INSTITUTION };
 
 export const DEV_USERS: Record<string, Me> = {
   t: { user_id: 'TCH-0412', role: 'teacher', name: 'Meenakshi Raghavan', email: 'meenakshi.r@stpeters.edu.in',

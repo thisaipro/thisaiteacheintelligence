@@ -57,6 +57,29 @@ describe('RankableOptionList', () => {
     expect(document.activeElement).toBe(screen.getByRole('button', { name: /Comforts only/ }));
   });
 
+  it('rapid placements build on each other even before the parent re-renders', async () => {
+    const seen: Ranked[] = [];
+    function LateParent() {
+      const [placed, setPlaced] = useState<Ranked>([null, null, null, null]);
+      // Like the React Query cache: the new ranking arrives on a later tick.
+      return <RankableOptionList itemId="X-2" options={options} placed={placed} onChange={(r) => { seen.push(r); setTimeout(() => setPlaced(r), 0); }} />;
+    }
+    render(<LateParent />);
+    fireEvent.keyDown(screen.getByRole('button', { name: /Calmly/ }), { key: '2' });
+    fireEvent.keyDown(screen.getByRole('button', { name: /Comforts/ }), { key: '1' });
+    expect(seen.at(-1)).toEqual(['B', 'A', null, null]);
+    await act(() => new Promise((r) => setTimeout(r, 5)));
+  });
+
+  it('keyboard: after placing from the pool, focus moves to the next unplaced card', async () => {
+    render(<Harness />);
+    const first = screen.getByRole('button', { name: /Calmly/ });
+    first.focus();
+    fireEvent.keyDown(first, { key: '1' });
+    await act(() => new Promise((r) => requestAnimationFrame(() => r(null))));
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: /Comforts only/ }));
+  });
+
   it('all four ranked announces completion', () => {
     render(<Harness />);
     for (const [name, key] of [[/Calmly/, '1'], [/Comforts/, '2'], [/Assumes/, '3'], [/Praises/, '4']] as const) {

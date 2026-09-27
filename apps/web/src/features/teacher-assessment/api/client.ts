@@ -3,6 +3,7 @@
 import type {
   AccessResponse, AnswerDTO, AnswerPut, AttemptDTO, BankItem, CohortDTO, ProfileDTO, RosterRow,
 } from '../model/types';
+import { isMvp } from '../model/config';
 
 export const BASE = '/api/teacher-assessment';
 
@@ -13,6 +14,12 @@ export class ApiError extends Error {
 }
 
 async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
+  if (isMvp()) {
+    const { localRequest } = await import('./localBackend'); // MVP only: keeps the bank out of platform builds
+    const out = await localRequest(init.method ?? 'GET', path, init.body ? JSON.parse(String(init.body)) : undefined);
+    if (out.status >= 400) throw new ApiError(out.status, (out.body ?? {}) as ApiError['body']);
+    return out.body as T;
+  }
   const res = await fetch(BASE + path, {
     credentials: 'include',
     ...init,

@@ -73,6 +73,11 @@ export function RankableOptionList({
   const root = useRef<HTMLDivElement>(null);
   const optBy = (l: string) => options.find((o) => o.label === l)!;
   const pool = options.filter((o) => !placed.includes(o.label));
+  // Handlers read the latest ranking, not the last render's: two quick key presses
+  // can land before the cache update re-renders this component.
+  const latest = useRef({ itemId, placed, prop: placed });
+  if (latest.current.itemId !== itemId || latest.current.prop !== placed) latest.current = { itemId, placed, prop: placed };
+  const commit = (next: Ranked) => { latest.current = { ...latest.current, placed: next }; onChange(next); };
   const { setNodeRef: poolRef } = useDroppable({ id: 'pool' });
 
   const sensors = useSensors(
@@ -86,18 +91,19 @@ export function RankableOptionList({
 
   function place(label: string, slot: number) {
     if (locked) return;
-    const next = placeLabel(placed, label, slot);
-    onChange(next);
+    const next = placeLabel(latest.current.placed, label, slot);
+    commit(next);
     pick(null);
     const left = 4 - next.filter(Boolean).length;
     announce(`Placed “${short(optBy(label).text)}” at rank ${slot + 1}, ${RANK_LABELS[slot].l}. ${left ? left + ' still to place.' : 'All four ranked.'}`);
   }
   function clear(slot: number) {
-    if (locked || !placed[slot]) return;
-    const label = placed[slot]!;
-    const next = placed.slice();
+    const cur = latest.current.placed;
+    if (locked || !cur[slot]) return;
+    const label = cur[slot]!;
+    const next = cur.slice();
     next[slot] = null;
-    onChange(next);
+    commit(next);
     announce(`Removed “${short(optBy(label).text)}” from rank ${slot + 1}.`);
   }
 
@@ -112,7 +118,7 @@ export function RankableOptionList({
     if (!label || !over) return;
     if (over.startsWith('slot:')) place(label, Number(over.slice(5)));
     else if (over === 'pool') {
-      const i = placed.indexOf(label);
+      const i = latest.current.placed.indexOf(label);
       if (i > -1) clear(i);
     }
   }
@@ -128,10 +134,14 @@ export function RankableOptionList({
       cards[(idx + (e.key === 'ArrowDown' ? 1 : -1) + cards.length) % cards.length]?.focus();
     } else if (/^[1-4]$/.test(e.key)) {
       e.preventDefault();
+      // From the pool, focus moves on to the next unplaced card so 1-2-3-4 can be typed
+      // in sequence; a card being moved between ranks keeps focus.
+      const unplaced = options.map((o) => o.label).filter((l) => !latest.current.placed.includes(l));
+      const target = unplaced.includes(label) ? unplaced[(unplaced.indexOf(label) + 1) % unplaced.length] : label;
       place(label, Number(e.key) - 1);
-      requestAnimationFrame(() => root.current?.querySelector<HTMLElement>(`[data-card="${CSS.escape(label)}"]`)?.focus());
+      requestAnimationFrame(() => root.current?.querySelector<HTMLElement>(`[data-card="${CSS.escape(target)}"]`)?.focus());
     } else if (e.key === 'Delete' || e.key === 'Backspace') {
-      const i = placed.indexOf(label);
+      const i = latest.current.placed.indexOf(label);
       if (i > -1) { e.preventDefault(); clear(i); }
     } else if (e.key === 'Escape' && picked) {
       pick(null);

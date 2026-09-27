@@ -4,6 +4,27 @@ A situational-judgement assessment (SJT) for institutional teachers. Each grade 
 
 This feature was ported from the prototype (`Thisai_Teacher_Assessment_standalone.html`) with the same layout, copy and behaviour. Its backend lives in `apps/api`. Scoring runs on the server only, in `apps/api/src/scoring/v1.ts`.
 
+## Modes: MVP now, sign-in later
+
+The mode is set at build time with `VITE_TA_MODE`.
+
+| | `mvp` (default) | `platform` |
+|---|---|---|
+| Sign-in | None. Everyone is the local "Guest teacher" | thisai.pro session via `GET /api/me` |
+| Roles | One user sees the teacher and admin pages (all four header tabs) | Teacher or institution admin, as the access rules say |
+| Backend | `apps/api`'s service runs **in the browser** (`api/localBackend.ts`) | HTTP calls to `apps/api` |
+| Data | `localStorage` on this device. The admin view is seeded with 11 demo teachers | Postgres |
+| Hosting | Any static host (Vercel project `web`) | Web + API + Postgres |
+
+Both modes run the same service code (`apps/api/src/service.ts`), so scoring and the endpoint rules are identical. In the MVP, answer keys are in the browser bundle and anyone with the link can open the admin pages. This is acceptable only for a demo.
+
+**Re-enabling sign-in:**
+1. Build the web app with `VITE_TA_MODE=platform`.
+2. Deploy `apps/api` with `TA_AUTH_MODE=thisai`, `THISAI_ME_URL` and `DATABASE_URL`.
+3. Route `/api/*` from the web host to the API.
+
+In MVP mode, "Reset demo data" (admin Teachers page, or the landing page after submitting) clears this device's data so the assessment can be taken again.
+
 ## Mounting in thisai_fe
 
 ```tsx

@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/THISAI FINAL BLUE-8.png';
 import { signOut } from '../../../../platform/session';
+import { isMvp } from '../../model/config';
 import { roleBadge } from '../../model/copy';
 import type { Me, ModuleMode } from '../../model/types';
 
@@ -30,7 +31,8 @@ export function ModuleHeader({ mode, tabs, me }: { mode: string; tabs?: ModuleMo
         </div>
         {tabs ? (
           <nav className="ptabs" aria-label="Teacher Assessment">
-            {TABS[tabs].map((t) => (
+            {/* MVP has no roles yet, so the admin pages sit next to the teacher ones. */}
+            {(isMvp() ? [...TABS.teacher, ...TABS.admin] : TABS[tabs]).map((t) => (
               <NavLink key={t.to} to={t.to} end={t.end} className={({ isActive }) => (isActive ? 'on' : '')}>
                 <span className="dt" aria-hidden="true"></span>{t.label}
               </NavLink>
@@ -44,7 +46,7 @@ export function ModuleHeader({ mode, tabs, me }: { mode: string; tabs?: ModuleMo
               {initials(me.name)}<i>{roleBadge(me.role, !!me.institution_id)}</i>
             </span>
           )}
-          {me && <button className="out" onClick={signOut}>Sign out</button>}
+          {me && !isMvp() && <button className="out" onClick={signOut}>Sign out</button>}
         </div>
       </div>
     </header>
