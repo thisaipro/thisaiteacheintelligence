@@ -1,0 +1,14 @@
+{
+ "n": 11,
+ "min_n": 5,
+ "available": true,
+ "dims": {
+  "equity": 2.07,
+  "deesc": 2.28,
+  "doubt": 2.36,
+  "adapt": 2.21,
+  "decide": 2.18,
+  "critical": 2.15,
+  "lead": 2.14
+ }
+}

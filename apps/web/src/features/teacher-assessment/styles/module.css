@@ -1,0 +1,104 @@
+/* Additions on top of ported.css: accessibility, access-check screen, runner
+   keyboard states, small-screen (360px) fixes and print. */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Outfit:wght@600;700;800&display=swap');
+
+.ta{min-height:100vh;background:var(--bg)}
+.ta .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ta :focus-visible{outline:3px solid rgba(73,79,156,.55);outline-offset:2px;border-radius:10px}
+.ta .btn{min-height:44px;justify-content:center;text-decoration:none}
+.ta .btn.sm{min-height:44px}
+.ta .btn.pri,.ta a.btn.pri{color:#fff}
+.ta .btn.ghost:disabled{opacity:.5;cursor:not-allowed}
+.ta .flagbtn,.ta .filters button,.ta .sel,.ta .hud .me .out,.ta .notetoggle{min-height:44px}
+.ta .placed .x{min-width:44px;min-height:44px;display:grid;place-items:center;margin:-12px -10px -12px auto}
+.ta .opt{min-height:52px}
+.ta .opt.focused{border-color:var(--brand);box-shadow:0 0 0 3px rgba(73,79,156,.18)}
+.ta .opt:disabled,.ta .placed.locked{cursor:default}
+.ta .dropzone{cursor:pointer}
+.ta .kbdhint{font-size:12px;color:var(--ink-3t);margin-top:10px}
+.ta .kbdhint kbd{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;background:var(--bg-3);border:1px solid var(--line-2);border-radius:5px;padding:1px 6px}
+.ta .dragoverlay{box-shadow:var(--shadow-2);cursor:grabbing;opacity:.96}
+.ta .hud .brand a{display:flex}
+.ta .hud .ptabs a{display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--ink-3t);white-space:nowrap;min-height:40px}
+.ta .hud .ptabs a:hover{color:var(--ink)}
+.ta .hud .ptabs a .dt{width:7px;height:7px;border-radius:50%;background:var(--line-2)}
+.ta .hud .ptabs a.on{background:#fff;color:var(--brand);box-shadow:0 2px 8px rgba(73,79,156,.14),0 0 0 1px var(--line)}
+.ta .hud .ptabs a.on .dt{background:var(--brand)}
+.ta .qgrid button{min-width:0}
+@media (pointer:coarse){.ta .qgrid button{min-height:44px}}
+.ta .syncnote{font-size:11.5px;color:var(--developing-t);font-weight:600}
+.ta .errbox{max-width:620px;margin:60px auto;padding:0 20px;text-align:center}
+.ta .errbox h1{font-size:24px;font-weight:800;margin-bottom:10px}
+.ta .errbox p{color:var(--ink-2);font-size:14.5px;line-height:1.6}
+.ta .loading{max-width:620px;margin:80px auto;text-align:center;color:var(--ink-3t);font-size:14px}
+.ta .validbanner ul{margin:6px 0 0;padding-left:18px;font-size:13px;line-height:1.6;color:var(--ink-2)}
+.ta .livebanner{margin:22px auto 0}
+.ta .cohortnote{font-size:13px;color:var(--ink-3t);background:var(--bg-3);border:1px dashed var(--line-2);border-radius:12px;padding:12px 16px}
+.ta .notecell{font-size:12px;color:var(--ink-3t);font-style:italic}
+
+/* ── access check (shown while /access loads) ── */
+.ta .accesspage{max-width:460px;margin:56px auto;padding:0 20px 80px}
+.ta .accesspage h1{font-size:26px;font-weight:800;margin-bottom:8px}
+.ta .accesspage .sub{font-size:14px;color:var(--ink-3t);line-height:1.6;margin-bottom:22px}
+.ta .denied .checks{text-align:left;max-width:460px;margin:22px auto}
+.ta .chk.no{border-color:rgba(185,56,56,.3);background:#fffafa}
+.ta .chk.no .ic{background:#fdeeee;color:#b93838}
+.ta .chk span{color:var(--ink-3t)}
+.ta .denied .acct{flex-wrap:wrap;justify-content:center}
+
+/* ── admin bank key view ── */
+.ta .keylist{display:grid;gap:8px}
+.ta .keyopt{display:grid;grid-template-columns:30px 1fr;gap:10px;background:var(--bg-3);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
+.ta .keyopt .kr{font-family:'Outfit',sans-serif;font-weight:800;font-size:13px;color:var(--brand);background:#fff;border:1px solid var(--line-2);border-radius:8px;display:grid;place-items:center;height:28px}
+.ta .keyopt p{margin:0;font-size:13px;line-height:1.55;color:var(--ink-2)}
+.ta .keyopt small{display:block;margin-top:4px;font-size:12px;color:var(--ink-3t)}
+.ta .editor .src{font-size:12px;color:var(--ink-3t);line-height:1.55;margin-top:14px}
+.ta .editor .scn{font-size:14px;line-height:1.6;color:var(--ink);margin:0 0 14px}
+
+/* ── small screens down to 360px ── */
+@media (max-width:620px){
+  .ta .slot{grid-template-columns:64px 1fr;gap:8px}
+  .ta .slot .rank{padding:10px 8px}
+  .ta .slot .rank span{font-size:8.5px;letter-spacing:.08em}
+  .ta .revrow{grid-template-columns:30px 1fr 74px;gap:10px}
+  .ta .revrow .dm{display:none}
+  .ta .navrow{flex-wrap:wrap}
+  .ta .navrow .spacer{display:none}
+  .ta .navrow .btn.pri{margin-left:auto}
+  .ta .rtop .idn{grid-template-columns:1fr}
+  .ta .pstep{grid-template-columns:1fr;gap:6px}
+  .ta .pagehead .acts{margin-left:0}
+  .ta .startbar .acts{width:100%}
+  .ta .startbar .acts .btn{flex:1}
+  .ta .hud .me{gap:8px}
+  .ta .dbar .dbv{justify-content:flex-start}
+  .ta .scenario p{font-size:17px}
+  .ta .dial{width:140px!important;height:140px!important}
+}
+@media (max-width:400px){
+  .ta .hud .brand img{height:26px}
+  .ta .hud .ptabs a{padding:8px 10px;font-size:12.5px}
+  .ta .tl-facts b{font-size:17px}
+  .ta .tl-journey .arw{display:none}
+}
+
+/* ── print / PDF: the report view model renders the same in print ── */
+@media print{
+  .ta .hud,.ta .tl-bar,.ta .rtop .acts,.ta .noprint{display:none!important}
+  .ta{background:#fff}
+  .ta .wrap{padding:0;max-width:none}
+  .ta .chartrow,.ta .sgrid,.ta .recgrid{break-inside:avoid}
+  .ta .profile,.ta .insight,.ta .pstep,.ta .rec,.ta .gate,.ta .dimrow{break-inside:avoid}
+  .ta .sechead{break-after:avoid}
+  .ta *{box-shadow:none!important}
+}
+
+/* ── runner: slot internals are buttons (tap / keyboard targets) ── */
+.ta .placed .pcard{all:unset;display:flex;align-items:flex-start;gap:12px;flex:1;cursor:grab;min-height:26px}
+.ta .placed .pcard:focus-visible{outline:3px solid rgba(73,79,156,.55);outline-offset:6px;border-radius:8px}
+.ta .placed .pcard.picked{color:var(--brand)}
+.ta .placed:has(.pcard.picked){border-color:var(--brand);box-shadow:0 0 0 3px rgba(73,79,156,.12)}
+.ta .placed.dragging{opacity:.4}
+.ta .dropzone .ph{all:unset;box-sizing:border-box;display:flex;align-items:center;width:100%;min-height:56px;font-size:13px;color:var(--ink-3t);padding:0 16px;cursor:pointer;border-radius:13px}
+.ta .dropzone .ph:disabled{cursor:default}
+.ta .dropzone .ph:focus-visible{outline:3px solid rgba(73,79,156,.55);outline-offset:2px}
