@@ -4,6 +4,7 @@ import { useCurrentAttempt, useStartAttempt } from '../api/queries';
 import { useModuleSession } from '../guards/RequireModuleAccess';
 import { JourneyStrip } from '../components/shell/JourneyStrip';
 import { BASE_PATH, ModuleHeader } from '../components/shell/ModuleHeader';
+import { MvpResetButton } from '../components/shell/MvpResetButton';
 import { ProgressRing } from '../components/shell/ProgressRing';
 import { DIMENSIONS, GRADE_BANDS, ITEMS_PER_ATTEMPT, gradeBandLabel, isRanked } from '../model/bands';
 import { COPY } from '../model/copy';
@@ -83,6 +84,7 @@ export default function Landing() {
               {!submitted && touched && <button className="btn pri" onClick={() => begin(true)} disabled={start.isPending}>
                 {completed === total ? 'Review & submit →' : `Resume at item ${resumeAt + 1} →`}</button>}
               <button className={'btn ' + (!submitted && touched ? 'ghost' : 'pri')} onClick={() => begin(false)} disabled={start.isPending}>{primaryLabel}</button>
+              {submitted && <MvpResetButton label="Reset and take it again" className="btn ghost" />}
             </div>
             {start.isError && <p className="syncnote" role="alert">{(start.error as Error).message}</p>}
             <div className="tl-lock">

@@ -31,7 +31,7 @@ export function RequireModuleAccess({ mode, allowClosedCycle, children }: { mode
   const a = access.data;
   let allowed = false;
   if (mode === 'teacher') {
-    if (a.can_manage) return frame(<AdminsManage />, 'admin');
+    if (a.can_manage && !a.can_take) return frame(<AdminsManage />, 'admin');
     allowed = a.can_take || (!!allowClosedCycle && a.reason === 'CYCLE_CLOSED' && a.has_profile);
     if (!allowed) return frame(<AccessDenied reason={a.reason ?? 'NOT_TEACHER'} me={me.data} access={a} />);
   } else {

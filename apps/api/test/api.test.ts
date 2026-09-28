@@ -187,3 +187,17 @@ describe('teacher-assessment API', () => {
     expect(p.toClient(item, ['A', 'B', null, null])).toEqual(['D', 'C', null, null]);
   });
 });
+
+describe('MemoryRepo snapshot / restore', () => {
+  it('round-trips attempts, answers, profiles and dates', async () => {
+    const a = new MemoryRepo({ items: bank });
+    await seedDemo(a, NOW);
+    const b = new MemoryRepo({ items: bank });
+    b.restore(a.snapshot());
+    const ra = await a.forInstitution('inst-stpeters').listSubmittedProfiles();
+    const rb = await b.forInstitution('inst-stpeters').listSubmittedProfiles();
+    expect(rb).toEqual(ra);
+    expect(rb[0].attempt.submitted_at).toBeInstanceOf(Date);
+    expect((await b.forInstitution('inst-stpeters').listCycles()).length).toBe(2);
+  });
+});

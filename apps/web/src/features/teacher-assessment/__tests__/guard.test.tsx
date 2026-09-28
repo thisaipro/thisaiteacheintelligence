@@ -1,10 +1,11 @@
 import { screen } from '@testing-library/react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Route } from 'react-router-dom';
 import { RequireModuleAccess } from '../guards/RequireModuleAccess';
 import { ADMIN, TEACHER, allowManage, allowTake, deny, mockFetch, renderAt } from './helpers';
 
-afterEach(() => vi.unstubAllGlobals());
+beforeEach(() => vi.stubEnv('VITE_TA_MODE', 'platform'));
+afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
 
 const routes = (
   <>

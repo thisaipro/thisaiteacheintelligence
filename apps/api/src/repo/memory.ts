@@ -37,6 +37,31 @@ export class MemoryRepo implements Repo {
 
   addCycle(c: Cycle) { this.state.cycles.push(clone(c)); }
 
+  /** JSON-safe copy of everything except the item bank (for browser persistence). */
+  snapshot(): string {
+    const s = this.state;
+    return JSON.stringify({
+      v: 1,
+      cycles: s.cycles,
+      attempts: s.attempts,
+      answers: [...s.answers].map(([id, m]) => [id, [...m.values()]]),
+      profiles: [...s.profiles],
+      audit: s.audit,
+    });
+  }
+
+  /** Restores a snapshot() over a repo seeded with the item bank. Dates are revived. */
+  restore(json: string) {
+    const iso = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z$/;
+    const d = JSON.parse(json, (_k, v) => (typeof v === 'string' && iso.test(v) ? new Date(v) : v));
+    if (d?.v !== 1) throw new Error('unknown snapshot version');
+    this.state.cycles = d.cycles;
+    this.state.attempts = d.attempts;
+    this.state.answers = new Map(d.answers.map(([id, rows]: [string, AnswerRow[]]) => [id, new Map(rows.map((r) => [r.item_id, r]))]));
+    this.state.profiles = new Map(d.profiles);
+    this.state.audit = d.audit;
+  }
+
   forInstitution(institutionId: string): InstitutionRepo {
     const s = this.state;
     const own = (a: AttemptRow | undefined) => (a && a.institution_id === institutionId ? a : undefined);
