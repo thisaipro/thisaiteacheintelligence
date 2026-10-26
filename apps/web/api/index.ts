@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { getRuntimeApp } from '../../api/src/runtime';
+import { getRuntimeApp } from '@thisai/ta-api/runtime';
 
 // Same-origin /api/* function alongside the existing Vite static deployment.
 export default async function handler(req: IncomingMessage, res: ServerResponse) {

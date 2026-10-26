@@ -2,9 +2,9 @@ import express from 'express';
 import request from 'supertest';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import handler from '../../web/api/index';
-import { getRuntimeApp } from '../src/runtime';
+import { getRuntimeApp } from '@thisai/ta-api/runtime';
 
-vi.mock('../src/runtime', () => ({ getRuntimeApp: vi.fn() }));
+vi.mock('@thisai/ta-api/runtime', () => ({ getRuntimeApp: vi.fn() }));
 afterEach(() => vi.restoreAllMocks());
 
 describe('Vercel API entry', () => {

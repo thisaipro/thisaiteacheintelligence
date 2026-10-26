@@ -154,6 +154,10 @@ function can use `apps/api` and `packages/ta-shared`. Use a current supported No
 LTS runtime (Node 22 or newer). Redeploy after setting the variables: `VITE_*`
 values are embedded during the frontend build. No second API project is needed.
 The Vercel routing config resolves `/api/*` as functions before the SPA fallback.
+Keep the default npm install command with lifecycle scripts enabled. The root
+`postinstall` builds `@thisai/ta-api/runtime` before Vercel packages the function.
+The function imports this compiled JavaScript export; importing API TypeScript
+source directly leaves extensionless imports that native Node cannot resolve.
 
 After deployment, check `/api/teacher-assessment/healthz`, then sign in as a
 teacher and complete an assessment. Sign in as admin to open

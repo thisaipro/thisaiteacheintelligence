@@ -34,6 +34,10 @@
     "vitest": "^2.1.8"
   },
   "exports": {
+    "./runtime": {
+      "types": "./src/runtime.ts",
+      "default": "./dist/runtime.js"
+    },
     "./core": "./src/core.ts",
     "./data/item-bank.v1.json": "./data/item-bank.v1.json"
   }
