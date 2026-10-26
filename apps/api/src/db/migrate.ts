@@ -4,6 +4,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import pg from 'pg';
+import '../env';
+import { databaseConfig } from './connection';
 import { loadBank } from '../bank';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -67,12 +69,12 @@ export async function seedItems(pool: pg.Pool, bankPath?: string) {
 
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
 if (isMain) {
-  const url = process.env.DATABASE_URL;
+  const url = process.env.DATABASE_DIRECT_URL || process.env.POSTGRES_URL_NON_POOLING || process.env.DATABASE_URL || process.env.POSTGRES_URL;
   if (!url) {
     console.error('DATABASE_URL is required');
     process.exit(1);
   }
-  const pool = new pg.Pool({ connectionString: url });
+  const pool = new pg.Pool(databaseConfig(url));
   const args = process.argv.slice(2);
   migrate(pool)
     .then(async (applied) => {

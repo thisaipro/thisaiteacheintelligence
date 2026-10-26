@@ -57,6 +57,14 @@ export interface AuditEntry {
   attempt_id?: string | null;
 }
 
+export interface TeacherState {
+  cycles: Cycle[];
+  attempt: AttemptRow | null;
+  answers: AnswerRow[];
+  latestAttempt: AttemptRow | null;
+  profile: ProfileRow | null;
+}
+
 /** Global, non-institution content. */
 export interface ItemStore {
   listItems(filter?: { band?: string; dimension?: string; activeOnly?: boolean }): Promise<ItemRow[]>;
@@ -65,6 +73,7 @@ export interface ItemStore {
 
 /** Every method here is scoped to one institution (query guard + RLS in Postgres). */
 export interface InstitutionRepo {
+  loadTeacherState(teacherId: string, now: Date): Promise<TeacherState>;
   listCycles(): Promise<Cycle[]>;
   findAttempt(teacherId: string, cycleId: string): Promise<AttemptRow | null>;
   getAttempt(attemptId: string): Promise<AttemptRow | null>;

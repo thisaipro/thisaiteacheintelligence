@@ -26,3 +26,14 @@ npm test
 ```
 
 In platform-mode dev, a bar at the top switches between fixture accounts: teacher, admin, student, no institution, module off, cycle closed, and signed out.
+
+## Supabase: shared teacher accounts and reports
+
+Set `VITE_TA_MODE=supabase` and `TA_AUTH_MODE=supabase` to use email/password
+sign-in and persistent Postgres storage. The same Vercel project serves the
+frontend and `/api/*` functions. See [Supabase setup](docs/supabase-setup.md) for
+the environment variables, migrations, account provisioning SQL and deployment
+steps. Example environment files are in `apps/web/.env.example` and
+`apps/api/.env.example`. A repository-root `.env` with Vercel's Supabase
+integration variables is also supported and automatically selects Supabase mode.
+Without Supabase configuration the existing MVP stays the default.

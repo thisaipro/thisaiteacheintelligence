@@ -10,6 +10,8 @@ export interface AppConfig extends RouteConfig {
   identity: IdentityResolver;
   /** Serves GET /api/me and POST /api/dev/switch-user — stand-ins for thisai.pro in local dev only. */
   devRoutes?: boolean;
+  /** Expose the API's resolved identity for Supabase and local development. */
+  sessionRoute?: boolean;
 }
 
 export function createApp(cfg: AppConfig) {
@@ -25,12 +27,16 @@ export function createApp(cfg: AppConfig) {
   });
   app.use('/api/teacher-assessment', teacherAssessmentRouter(cfg));
 
-  if (cfg.devRoutes) {
-    app.get('/api/me', async (req, res) => {
-      const me = await cfg.identity(req);
-      if (!me) return res.status(401).json({ error: 'unauthenticated' });
-      res.json(me);
+  if (cfg.sessionRoute || cfg.devRoutes) {
+    app.get('/api/me', (req, res, next) => {
+      res.setHeader('Cache-Control', 'no-store');
+      cfg.identity(req).then((me) => {
+        if (!me) { res.status(401).json({ error: 'unauthenticated' }); return; }
+        res.json(me);
+      }).catch(next);
     });
+  }
+  if (cfg.devRoutes) {
     app.get('/api/dev/users', (_req, res) => res.json(DEV_USERS));
     app.post('/api/dev/switch-user', (req, res) => {
       const key = String(req.body?.user ?? '');
@@ -39,5 +45,10 @@ export function createApp(cfg: AppConfig) {
       res.json({ ok: true });
     });
   }
+  app.use((error: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+    if (error instanceof SyntaxError) { res.status(400).json({ error: 'invalid_request' }); return; }
+    console.error('[teacher-assessment] request failed');
+    res.status(503).json({ error: 'service_unavailable', message: 'The service is unavailable. Please try again.' });
+  });
   return app;
 }

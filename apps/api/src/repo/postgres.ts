@@ -3,8 +3,9 @@
    rows even if a WHERE clause is ever forgotten. Queries still carry their own
    institution guard as a second line of defence. */
 import pg from 'pg';
+import { DatabaseUnavailableError, isDatabaseConnectionError } from '../db/errors';
 import type { Cycle } from '../access';
-import type { AnswerRow, AttemptRow, InstitutionRepo, ItemRow, ProfileRow, Repo } from './types';
+import type { AnswerRow, AttemptRow, InstitutionRepo, ItemRow, ProfileRow, Repo, TeacherState } from './types';
 
 type Q = pg.PoolClient;
 
@@ -27,6 +28,7 @@ const cycleFrom = (r: any): Cycle => ({
 });
 
 export class PostgresRepo implements Repo {
+  private bank: { expiresAt: number; value: Promise<ItemRow[]> } | undefined;
   constructor(private pool: pg.Pool) {}
 
   private async itemsWhere(where: string, params: unknown[]): Promise<ItemRow[]> {
@@ -34,7 +36,10 @@ export class PostgresRepo implements Repo {
       `SELECT i.*, coalesce(json_agg(json_build_object('label', o.label, 'text', o.text, 'key_rank', o.key_rank,
                 'points', o.points, 'rationale', o.rationale) ORDER BY o.label) FILTER (WHERE o.item_id IS NOT NULL), '[]') AS options
          FROM ta_items i LEFT JOIN ta_options o ON o.item_id = i.item_id
-        ${where} GROUP BY i.item_id ORDER BY i.item_id`, params);
+        ${where} GROUP BY i.item_id ORDER BY i.item_id`, params).catch((error: unknown) => {
+          if (isDatabaseConnectionError(error)) throw new DatabaseUnavailableError(error);
+          throw error;
+        });
     return rows.map((r) => ({
       item_id: r.item_id, grade_band: r.grade_band, dimension: r.dimension, gate_dimension: r.gate, scenario: r.scenario,
       source_tag: r.source_tag, version: r.version, active: r.active,
@@ -52,25 +57,40 @@ export class PostgresRepo implements Repo {
   }
 
   async getItems(ids: string[]) {
-    const rows = await this.itemsWhere('WHERE i.item_id = ANY($1)', [ids]);
+    // Only global bank content is cached. Attempts, roles and reports are never
+    // shared between requests/users. A rejected load is not kept in the cache.
+    if (!this.bank || this.bank.expiresAt <= Date.now()) {
+      const entry = { expiresAt: Infinity, value: this.itemsWhere('', []) };
+      this.bank = entry;
+      entry.value.then(() => { entry.expiresAt = Date.now() + 60_000; }, () => { if (this.bank === entry) this.bank = undefined; });
+    }
+    const rows = await this.bank.value;
     const by = new Map(rows.map((r) => [r.item_id, r]));
-    return ids.map((id) => by.get(id)).filter((r): r is ItemRow => !!r);
+    return structuredClone(ids.map((id) => by.get(id)).filter((r): r is ItemRow => !!r));
   }
 
   forInstitution(inst: string): InstitutionRepo {
     const tx = async <T>(fn: (c: Q) => Promise<T>): Promise<T> => {
-      const c = await this.pool.connect();
+      let c: Q;
+      try { c = await this.pool.connect(); }
+      catch (error) { throw new DatabaseUnavailableError(error); }
+      let failed = false;
       try {
-        await c.query('BEGIN');
-        await c.query(`SELECT set_config('app.institution_id', $1, true)`, [inst]);
+        // One network exchange for transaction setup. escapeLiteral is pg's
+        // SQL literal encoder; the institution is never interpolated raw.
+        await c.query(`BEGIN; SET LOCAL app.institution_id = ${pg.escapeLiteral(inst)}`);
         const out = await fn(c);
         await c.query('COMMIT');
         return out;
       } catch (e) {
+        failed = true;
         await c.query('ROLLBACK').catch(() => {});
+        if (isDatabaseConnectionError(e)) throw new DatabaseUnavailableError(e);
         throw e;
       } finally {
-        c.release();
+        // Do not return a suspect connection to the pool after a failed
+        // transaction. Mutations are never replayed after an uncertain commit.
+        c.release(failed);
       }
     };
     const one = async <T>(c: Q, sql: string, p: unknown[], map: (r: any) => T) => {
@@ -79,6 +99,51 @@ export class PostgresRepo implements Repo {
     };
 
     return {
+      loadTeacherState: async (teacherId, now): Promise<TeacherState> => {
+        let c: Q;
+        try { c = await this.pool.connect(); }
+        catch (error) { throw new DatabaseUnavailableError(error); }
+        let failed = false;
+        try {
+          // Batch read-only transaction setup, all page state, and COMMIT into
+          // ONE network exchange. Every value is escaped using the pg encoder.
+          const institution = pg.escapeLiteral(inst);
+          const teacher = pg.escapeLiteral(teacherId);
+          const at = pg.escapeLiteral(now.toISOString());
+          const results = await c.query(`BEGIN READ ONLY;
+            SET LOCAL app.institution_id = ${institution};
+            WITH current_cycle AS (
+              SELECT cycle_id FROM ta_cycles WHERE institution_id = ${institution}
+                AND enabled AND opens_at <= ${at}::timestamptz AND ${at}::timestamptz < closes_at
+              ORDER BY opens_at DESC LIMIT 1
+            ), current_attempt AS (
+              SELECT * FROM ta_attempts WHERE institution_id = ${institution} AND teacher_id = ${teacher}
+                AND cycle_id = (SELECT cycle_id FROM current_cycle)
+            ), latest_attempt AS (
+              SELECT * FROM ta_attempts WHERE institution_id = ${institution} AND teacher_id = ${teacher}
+                AND status = 'submitted' ORDER BY submitted_at DESC LIMIT 1
+            ) SELECT
+              coalesce((SELECT json_agg(c) FROM ta_cycles c WHERE institution_id = ${institution}), '[]') AS cycles,
+              (SELECT row_to_json(a) FROM current_attempt a) AS attempt,
+              coalesce((SELECT json_agg(ans) FROM ta_answers ans
+                JOIN current_attempt a ON a.attempt_id = ans.attempt_id), '[]') AS answers,
+              (SELECT row_to_json(a) FROM latest_attempt a) AS latest_attempt,
+              (SELECT row_to_json(p) FROM ta_profiles p
+                JOIN latest_attempt a ON a.attempt_id = p.attempt_id) AS profile;
+            COMMIT;`) as unknown as pg.QueryResult[];
+          const row = results[2].rows[0];
+          return {
+            cycles: row.cycles.map(cycleFrom), attempt: row.attempt ? attemptFrom(row.attempt) : null,
+            answers: row.answers.map(answerFrom), latestAttempt: row.latest_attempt ? attemptFrom(row.latest_attempt) : null,
+            profile: row.profile ? profileFrom(row.profile) : null,
+          };
+        } catch (error) {
+          failed = true;
+          await c.query('ROLLBACK').catch(() => {});
+          if (isDatabaseConnectionError(error)) throw new DatabaseUnavailableError(error);
+          throw error;
+        } finally { c.release(failed); }
+      },
       listCycles: () => tx(async (c) => (await c.query('SELECT * FROM ta_cycles WHERE institution_id = $1', [inst])).rows.map(cycleFrom)),
       findAttempt: (teacherId, cycleId) => tx((c) => one(c,
         'SELECT * FROM ta_attempts WHERE institution_id = $1 AND teacher_id = $2 AND cycle_id = $3', [inst, teacherId, cycleId], attemptFrom)),

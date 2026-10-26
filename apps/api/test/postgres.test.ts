@@ -20,7 +20,7 @@ describe.skipIf(!OWNER || !APP)('Postgres repository + migrations', () => {
   beforeAll(async () => {
     owner = new pg.Pool({ connectionString: OWNER });
     await owner.query('DROP TABLE IF EXISTS ta_audit_log, ta_profiles, ta_answers, ta_attempts, ta_cycles, ta_options, ta_items, ta_schema_migrations CASCADE');
-    expect(await migrate(owner)).toEqual(['001_teacher_assessment.sql']);
+    expect(await migrate(owner)).toEqual(['001_teacher_assessment.sql', '002_supabase_api_only.sql']);
     expect(await migrate(owner)).toEqual([]);
     expect(await seedItems(owner)).toBe(210);
     const appRole = new URL(APP!).username;
@@ -42,14 +42,37 @@ describe.skipIf(!OWNER || !APP)('Postgres repository + migrations', () => {
     const a: AttemptDTO = (await t('post', '/attempts').send({ grade_band: 'High School (9-10)' })).body;
     expect(a.items).toHaveLength(35);
     expect(JSON.stringify(a)).not.toMatch(/key_rank/);
-    for (const [n, it] of a.items.entries())
-      expect((await t('put', `/attempts/${a.attempt_id}/answers/${it.item_id}`).send({ ranked: n % 3 ? ['B', 'A', 'C', 'D'] : ['C', 'A', 'D', 'B'], ms: 21000 })).status).toBe(200);
+    const initial = await t('get', '/bootstrap');
+    expect(initial.status).toBe(200);
+    expect(initial.body).toMatchObject({ me: { user_id: 'TCH-0412' }, access: { can_take: true }, attempt: { attempt_id: a.attempt_id }, profile: null });
+    expect(initial.body.attempt.items).toHaveLength(35);
+    expect(JSON.stringify(initial.body)).not.toMatch(/key_rank|rationale|item_level/);
+    for (const [n, it] of a.items.entries()) {
+      const response = await t('put', `/attempts/${a.attempt_id}/answers/${it.item_id}`).send({ ranked: n % 3 ? ['B', 'A', 'C', 'D'] : ['C', 'A', 'D', 'B'], ms: 21000 });
+      expect(response.status, `${it.item_id}: ${JSON.stringify(response.body)}`).toBe(200);
+    }
     const partial = await t('put', `/attempts/${a.attempt_id}/answers/${a.items[0].item_id}`).send({ ranked: ['C', 'A', 'D', 'B'], flagged: true, ms: 1 });
     expect(partial.body).toMatchObject({ flagged: true, ms_on_item: 21000 });
+    const draft = await t('get', '/bootstrap');
+    expect(draft.body.preview.preview).toBe(true);
+    expect(draft.body.preview.dims.every((dimension: any) => dimension.coaching_note === null)).toBe(true);
+    expect(draft.body.profile).toBeNull();
     const sub = await t('post', `/attempts/${a.attempt_id}/submit`);
     expect(sub.status).toBe(200);
     expect(sub.body.scoring_version).toBe('v1');
     expect((await t('get', '/profile/me')).body.index).toBe(sub.body.index);
+    const completed = await t('get', '/bootstrap');
+    expect(completed.body.profile.index).toBe(sub.body.index);
+    expect(completed.body.access.has_profile).toBe(true);
+    expect(completed.body.attempt.status).toBe('submitted');
+    expect(completed.body.preview).toBeNull();
+    const other = await t('get', '/bootstrap', 'c');
+    expect(other.body.attempt).toBeNull();
+    expect(other.body.profile).toBeNull();
+    const admin = await t('get', '/bootstrap', 'a');
+    expect(admin.body.access.can_manage).toBe(true);
+    expect(admin.body.attempt).toBeNull();
+    expect(admin.body.profile).toBeNull();
 
     const roster = (await t('get', '/admin/teachers', 'a')).body;
     expect(roster).toEqual([expect.objectContaining({ teacher_id: 'TCH-0412', status: 'submitted', items_answered: 35, index: sub.body.index })]);
@@ -76,5 +99,27 @@ describe.skipIf(!OWNER || !APP)('Postgres repository + migrations', () => {
     } finally {
       c.release();
     }
+  });
+
+  it('blocks Supabase browser roles from reading keys or accessing assessment tables', async () => {
+    const roles = (await owner.query("SELECT rolname FROM pg_roles WHERE rolname IN ('anon', 'authenticated')")).rows;
+    for (const { rolname } of roles) {
+      for (const table of ['ta_items', 'ta_options', 'ta_answers', 'ta_profiles', 'ta_attempts', 'ta_cycles', 'ta_audit_log', 'ta_schema_migrations']) {
+        const result = await owner.query('SELECT has_table_privilege($1, $2, $3) AS allowed', [rolname, table, 'SELECT,INSERT,UPDATE,DELETE,TRUNCATE']);
+        expect(result.rows[0].allowed, `${rolname} ${table}`).toBe(false);
+      }
+    }
+  });
+
+  it('escapes snapshot identifiers and resets the institution after the batched transaction', async () => {
+    const repo = new PostgresRepo(appPool);
+    const injection = await repo.forInstitution("inst-stpeters'; SELECT 1; --").loadTeacherState('TCH-0412', NOW);
+    expect(injection.cycles).toEqual([]);
+    expect(injection.attempt).toBeNull();
+    const wrongTeacher = await repo.forInstitution('inst-stpeters').loadTeacherState("teacher' OR true --", NOW);
+    expect(wrongTeacher.attempt).toBeNull();
+    expect(wrongTeacher.profile).toBeNull();
+    const leaked = await appPool.query('SELECT count(*)::int AS n FROM ta_attempts');
+    expect(leaked.rows[0].n).toBe(0);
   });
 });

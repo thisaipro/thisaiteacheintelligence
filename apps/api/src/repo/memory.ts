@@ -67,6 +67,15 @@ export class MemoryRepo implements Repo {
     const own = (a: AttemptRow | undefined) => (a && a.institution_id === institutionId ? a : undefined);
     const attempt = (id: string) => own(s.attempts.find((a) => a.attempt_id === id));
     return {
+      async loadTeacherState(teacherId, now) {
+        const cycles = await this.listCycles();
+        const cycle = cycles.filter((c) => c.enabled && c.opens_at <= now && now < c.closes_at)
+          .sort((a, b) => b.opens_at.getTime() - a.opens_at.getTime())[0];
+        const current = cycle ? await this.findAttempt(teacherId, cycle.cycle_id) : null;
+        const latestAttempt = await this.latestSubmittedAttempt(teacherId);
+        return { cycles, attempt: current, answers: current ? await this.getAnswers(current.attempt_id) : [],
+          latestAttempt, profile: latestAttempt ? await this.getProfile(latestAttempt.attempt_id) : null };
+      },
       async listCycles() { return s.cycles.filter((c) => c.institution_id === institutionId).map(clone); },
       async findAttempt(teacherId, cycleId) {
         return clone(s.attempts.find((a) => a.institution_id === institutionId && a.teacher_id === teacherId && a.cycle_id === cycleId) ?? null);

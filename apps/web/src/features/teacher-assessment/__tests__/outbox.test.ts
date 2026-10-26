@@ -42,4 +42,35 @@ describe('AnswerOutbox', () => {
     await again.flush();
     expect(await again.count()).toBe(0);
   });
+
+  it('keeps answers when a session expires and syncs after sign-in', async () => {
+    const send = vi.fn().mockRejectedValueOnce(new ApiError(401, { error: 'unauthenticated' })).mockResolvedValue({});
+    const ob = new AnswerOutbox(mem(), send);
+    await ob.enqueue('att', 'I1', { ranked: ['A', 'B', 'C', 'D'] });
+    expect(await ob.count()).toBe(1);
+    await ob.flush();
+    expect(await ob.count()).toBe(0);
+  });
+
+  it('does not send or count another teacher’s queued answers after switching accounts', async () => {
+    let owner: string | null = 'teacher-1';
+    const send = vi.fn().mockRejectedValue(new TypeError('offline'));
+    const ob = new AnswerOutbox(mem(), send, async () => owner);
+    await ob.enqueue('att-1', 'I1', { ranked: ['A', 'B', 'C', 'D'] });
+    expect(await ob.count()).toBe(1);
+    send.mockClear();
+    owner = 'teacher-2';
+    await ob.flush();
+    expect(await ob.count()).toBe(0);
+    expect(send).not.toHaveBeenCalled();
+    owner = null;
+    await ob.flush();
+    expect(send).not.toHaveBeenCalled();
+    owner = 'teacher-1';
+    send.mockResolvedValue({});
+    await ob.flush();
+    expect(send).toHaveBeenCalledTimes(1);
+    expect(send).toHaveBeenCalledWith('att-1', 'I1', { ranked: ['A', 'B', 'C', 'D'] });
+    expect(await ob.count()).toBe(0);
+  });
 });

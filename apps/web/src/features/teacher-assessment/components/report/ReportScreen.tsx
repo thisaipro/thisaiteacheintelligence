@@ -16,7 +16,7 @@ export function ReportScreen({ view, actions, onBack }: { view: ReportView; acti
   const [open, setOpen] = useState<string | null>(view.equityGate ? 'equity' : null);
   const { admin } = view;
   return (
-    <main className="wrap mid" data-role={view.role}>
+    <main className="wrap report" data-role={view.role}>
       {onBack && <button className="btn quiet sm noprint" style={{ marginBottom: 8 }} onClick={onBack}>← Back</button>}
       {view.previewBanner && <div className="livebanner" role="status" style={{ margin: '0 0 16px' }}>{view.previewBanner}</div>}
 

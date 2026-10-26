@@ -8,6 +8,14 @@ This feature was ported from the prototype (`Thisai_Teacher_Assessment_standalon
 
 The mode is set at build time with `VITE_TA_MODE`.
 
+**Supabase mode:** `VITE_TA_MODE=supabase` uses the HTTP API, Supabase
+email/password authentication and Postgres. See the [setup guide](../../../../../docs/supabase-setup.md)
+for all environment variables and demo account provisioning. In this mode,
+`TA_AUTH_MODE=supabase` replaces the thisai.pro identity resolver; the same
+teacher/admin endpoint rules and scoring apply. Keys stay in the API and are
+excluded from the browser build. The browser-only behaviour and security
+exceptions below apply specifically to MVP mode.
+
 | | `mvp` (default) | `platform` |
 |---|---|---|
 | Sign-in | None. Everyone is the local "Guest teacher" | thisai.pro session via `GET /api/me` |
@@ -57,7 +65,12 @@ Every route is wrapped in `<RequireModuleAccess mode="teacher|admin">`.
 | `/teacher-assessment/admin/teachers` | Roster + cohort averages | admin |
 | `/teacher-assessment/admin/teachers/:teacherId` | Teacher report, admin view | admin |
 
-While `/access` loads, the guard shows the 4-step check (Thisai account → Institution → Role on record → Module access). A denial shows `AccessDenied(reason)` with a ✓ or ✕ for each step and a link to thisai.pro. An admin who opens a teacher route sees "Admins manage, teachers take". A teacher who opens an admin route sees `NOT_ADMIN`.
+The thisai.pro integration shows the 4-step check while `/access` loads.
+Supabase mode restores a same-account, per-tab snapshot and revalidates access
+quietly in the background; first visits use a neutral page skeleton. A denial
+shows `AccessDenied(reason)`. In platform mode an admin opening a teacher route
+sees "Admins manage, teachers take"; Supabase admins go directly to the roster.
+A teacher opening an admin route sees `NOT_ADMIN`.
 
 ## API — `/api/teacher-assessment`
 
@@ -66,6 +79,7 @@ Every route resolves identity from the thisai.pro session and re-checks access o
 | Method | Path | Who | Notes |
 |---|---|---|---|
 | GET | `/access` | any signed-in user | `{can_take, can_manage, reason, cycle_id, cycle_name, has_profile}`. `reason` is one of `NOT_TEACHER` · `NO_INSTITUTION` · `MODULE_DISABLED` · `CYCLE_CLOSED` |
+| GET | `/bootstrap` | any signed-in user | Identity, access, own current attempt/answers, own report and preview in one response. Supabase page loads use this instead of separate identity/access/attempt requests |
 | POST | `/attempts` | teacher | `{grade_band, restart?}` → attempt + 35 items (no keys). The same band resumes the attempt. `restart` or a different band clears answers. Returns 409 once submitted in this cycle |
 | GET | `/attempts/current` | teacher | Attempt for the open cycle, or `null` |
 | PUT | `/attempts/:id/answers/:itemId` | teacher | `{ranked[4], note?, flagged?, ms?}`. Idempotent. `ms_on_item` never decreases. Returns 409 after submit |
@@ -79,11 +93,26 @@ Every route resolves identity from the thisai.pro session and re-checks access o
 
 Local development only: `GET /api/me`, `GET /api/dev/users` and `POST /api/dev/switch-user` stand in for thisai.pro when `TA_AUTH_MODE=dev`.
 
+Supabase page loads hydrate the React Query caches from `/bootstrap`, including
+saved rankings and report/preview state. Postgres reads that state in one
+read-only transaction, batched into a single database exchange with the
+institution RLS context set before the reads and cleared at commit. The global
+question bank is cached server-side for 60 seconds; concurrent loads are
+deduplicated. User answers, roles, access decisions and reports are not cached
+across users. Other endpoints still recheck authorization on every request;
+only `/access` needs the extra latest-report existence lookup.
+
 ## Env flags (apps/api)
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `TA_AUTH_MODE` | `thisai` in production, else `dev` | `thisai` forwards Cookie/Authorization to `THISAI_ME_URL`. `dev` uses fixture accounts (refused in production) |
+| `TA_AUTH_MODE` | `thisai` in production, else `dev` | `supabase` verifies bearer tokens with Supabase Auth; `thisai` forwards Cookie/Authorization to `THISAI_ME_URL`; `dev` uses fixture accounts (refused in production) |
+| `SUPABASE_URL` | — | Required for Supabase mode |
+| `SUPABASE_PUBLISHABLE_KEY` | — | Required for Supabase mode; `SUPABASE_ANON_KEY` is a legacy alias |
+| `DATABASE_DIRECT_URL` | — | Optional owner URL used only by the migration command |
+| `TA_DB_POOL_MAX` | `4` locally, `1` on Vercel | Maximum Postgres connections per API instance |
+| `TA_DB_CONNECT_TIMEOUT_MS` | `30000` | Connection acquisition/opening timeout |
+| `TA_DB_IDLE_TIMEOUT_MS` | `60000` locally, `5000` on Vercel | Time to retain unused database connections |
 | `THISAI_ME_URL` | — | Required for `thisai` mode, e.g. `https://thisai.pro/api/me` |
 | `DATABASE_URL` | — | Postgres. Required in production. Without it the API uses the in-memory store |
 | `TA_MODULE_ENABLED` | `true` | Global kill switch. When false, every user gets `MODULE_DISABLED` |

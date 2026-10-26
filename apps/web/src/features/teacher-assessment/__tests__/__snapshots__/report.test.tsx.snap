@@ -2,7 +2,7 @@
 
 exports[`ReportScreen > renders the admin report (snapshot) with the caution banner and cohort 1`] = `
 <main
-  class="wrap mid"
+  class="wrap report"
   data-role="admin"
 >
   <section
@@ -2234,7 +2234,7 @@ exports[`ReportScreen > renders the admin report (snapshot) with the caution ban
 
 exports[`ReportScreen > renders the teacher report (snapshot) without exam/score/fail wording 1`] = `
 <main
-  class="wrap mid"
+  class="wrap report"
   data-role="teacher"
 >
   <section

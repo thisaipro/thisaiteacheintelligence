@@ -8,6 +8,7 @@
     "start": "node dist/server.js",
     "build": "tsup",
     "migrate": "tsx src/db/migrate.ts",
+    "seed:demo": "tsx scripts/seed-demo-roster.ts",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json",
     "gen:web-fixtures": "tsx scripts/gen-web-fixtures.ts"
@@ -15,6 +16,7 @@
   "dependencies": {
     "@thisai/ta-shared": "*",
     "cookie-parser": "^1.4.7",
+    "dotenv": "^18.0.9",
     "express": "^4.21.2",
     "pg": "^8.13.1",
     "zod": "^3.24.1"

@@ -2,6 +2,12 @@
    keyboard states, small-screen (360px) fixes and print. */
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Outfit:wght@600;700;800&display=swap');
 
+.ta .ta-signin { display: grid; gap: 12px; width: 100%; max-width: 360px; margin: 24px auto; text-align: left; }
+.ta .ta-signin label { font-weight: 700; }
+.ta .ta-signin input { box-sizing: border-box; width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--ink-3t); border-radius: 8px; font: inherit; }
+.ta .ta-signin button { margin-top: 8px; justify-content: center; }
+.ta .ta-signin-help { font-size: 13px; }
+
 .ta{min-height:100vh;background:var(--bg)}
 .ta .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .ta :focus-visible{outline:3px solid rgba(73,79,156,.55);outline-offset:2px;border-radius:10px}
@@ -35,6 +41,46 @@
 .ta .livebanner{margin:22px auto 0}
 .ta .cohortnote{font-size:13px;color:var(--ink-3t);background:var(--bg-3);border:1px dashed var(--line-2);border-radius:12px;padding:12px 16px}
 .ta .notecell{font-size:12px;color:var(--ink-3t);font-style:italic}
+.ta .page-skeleton{display:grid;gap:20px}
+.ta .skeleton-heading{width:40%;height:30px;background:var(--bg-3);border-radius:8px}
+.ta .skeleton-card{height:190px;background:var(--bg-3);border:1px solid var(--line);border-radius:18px}
+.ta-cache-notice{padding:8px 20px;background:#f0f2fa;color:#3b4373;text-align:center;font:13px system-ui,sans-serif}
+.ta-cache-notice button{border:0;background:none;color:inherit;text-decoration:underline;cursor:pointer;font:inherit}
+
+/* Reports use the same 1180px page container as the assessment/admin screens.
+   Explicit shrinkable tracks keep chart labels from widening the entire page. */
+.ta .report .rtop .idn{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+.ta .report .rtop .body{grid-template-columns:168px minmax(0,1fr)}
+.ta .report .rtop .body:not(:has(.dial)){grid-template-columns:minmax(0,1fr)}
+.ta .report .rtop .acts{justify-content:flex-end}
+.ta .report .rtop .body>div,.ta .report .kpi,.ta .report .chartcard{min-width:0}
+.ta .report .dial svg{width:100%;height:100%}
+.ta .report .kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ta .report .livebanner{max-width:none}
+.ta .report .chartrow{grid-template-columns:380px minmax(0,1fr)}
+.ta .report .dbar,.ta .report .dbaxis{grid-template-columns:minmax(130px,168px) minmax(0,1fr) minmax(112px,132px);gap:12px}
+.ta .report .dbaxis .zones,.ta .report .dbaxis .zones span{min-width:0;overflow-wrap:anywhere}
+.ta .report .dbaxis .zones{letter-spacing:.04em}
+.ta .report .dbtrack{min-width:0}
+.ta .report .kpi .v,.ta .report .dimtop .nm{overflow-wrap:anywhere}
+
+@media (max-width:1100px){
+  .ta .report .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ta .report .chartrow{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:820px){
+  .ta .report .rtop .idn,.ta .report .rtop .body{grid-template-columns:minmax(0,1fr)}
+  .ta .report .rtop .acts{justify-content:flex-start}
+  .ta .report .dial{justify-self:center}
+}
+@media (max-width:620px){
+  .ta .report .rtop .idn,.ta .report .rtop .body{padding:20px}
+  .ta .report .chartcard{padding:18px 16px}
+  .ta .report .dbar,.ta .report .dbaxis{grid-template-columns:minmax(0,1fr);gap:6px}
+}
+@media (max-width:480px){
+  .ta .report .kpis{grid-template-columns:minmax(0,1fr)}
+}
 
 /* ── access check (shown while /access loads) ── */
 .ta .accesspage{max-width:460px;margin:56px auto;padding:0 20px 80px}

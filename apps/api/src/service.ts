@@ -4,12 +4,13 @@
 import { z } from 'zod';
 import {
   COHORT_MIN_N, DIMENSION_NAMES, GRADE_BAND_IDS,
-  type AccessResponse, type AttemptDTO, type BankItem, type CohortDTO, type Me, type RosterRow,
+  type AccessResponse, type AttemptDTO, type BankItem, type BootstrapDTO, type CohortDTO, type Me, type RosterRow,
 } from '@thisai/ta-shared';
 import { resolveAccess, type AccessDecision, type Cycle } from './access';
 import { buildProfile, cohortAverages, isComplete, itemsForBand } from './scoring/v1';
 import { Presenter, itemLevelRows, profileRowFrom, toProfileDTO } from './present';
-import type { AttemptRow, InstitutionRepo, ItemRow, Repo } from './repo/types';
+import type { AnswerRow, AttemptRow, InstitutionRepo, ItemRow, Repo } from './repo/types';
+import { DatabaseUnavailableError } from './db/errors';
 
 export interface ServiceConfig {
   repo: Repo;
@@ -75,14 +76,41 @@ export function createService(cfg: ServiceConfig) {
 
   async function attemptDTO(repo: InstitutionRepo, a: AttemptRow): Promise<AttemptDTO> {
     const items = await itemsFor(a);
-    const byId = new Map(items.map((i) => [i.item_id, i]));
     const answers = await repo.getAnswers(a.attempt_id);
+    return presentAttempt(a, items, answers);
+  }
+
+  function presentAttempt(a: AttemptRow, items: ItemRow[], answers: AnswerRow[]): AttemptDTO {
+    const byId = new Map(items.map((i) => [i.item_id, i]));
     return {
       attempt_id: a.attempt_id, cycle_id: a.cycle_id, grade_band: a.grade_band, status: a.status,
       started_at: a.started_at.toISOString(), submitted_at: a.submitted_at?.toISOString() ?? null,
       items: items.map((i) => present.toClientItem(i)),
       answers: Object.fromEntries(answers.filter((x) => byId.has(x.item_id)).map((x) => [x.item_id, present.toAnswerDTO(byId.get(x.item_id)!, x)])),
     };
+  }
+
+  async function bootstrap(me: Me, repo: InstitutionRepo | null): Promise<BootstrapDTO> {
+    const at = now();
+    const state = repo ? await repo.loadTeacherState(me.user_id, at)
+      : { cycles: [], attempt: null, answers: [], latestAttempt: null, profile: null };
+    const access = cfg.accessOverride ? cfg.accessOverride(me, state.cycles, at)
+      : resolveAccess(me, state.cycles, at, { moduleEnabled: cfg.moduleEnabled ?? true, hasProfile: !!state.latestAttempt });
+    const { cycle: _cycle, ...decision } = access;
+    const a = access.can_take ? state.attempt : null;
+    const items = a ? await itemsFor(a) : [];
+    const attempt = a ? presentAttempt(a, items, state.answers) : null;
+    const canRead = me.role === 'teacher' && (access.can_take || access.reason === 'CYCLE_CLOSED');
+    const profile = canRead && state.latestAttempt && state.profile
+      ? toProfileDTO({ attempt: state.latestAttempt, institution_name: me.institution_name ?? null }, state.profile, 'teacher',
+        { items_answered: state.latestAttempt.item_order.length, items_total: state.latestAttempt.item_order.length }) : null;
+    let preview = null;
+    if (previewEnabled && a?.status === 'in_progress' && state.answers.some((answer) => answer.ranked.some(Boolean))) {
+      const model = buildProfile(items, Object.fromEntries(state.answers.map((answer) => [answer.item_id, answer])), a.grade_band, { displayOrder: present.displayOrder });
+      preview = toProfileDTO({ attempt: a, institution_name: me.institution_name ?? null }, model, 'teacher',
+        { preview: true, items_answered: model.items_answered, items_total: model.items_total });
+    }
+    return { me, access: decision, attempt, profile, preview };
   }
 
   async function assemble(band: string): Promise<string[]> {
@@ -212,7 +240,10 @@ export function createService(cfg: ServiceConfig) {
 
   route('GET', '/admin/teachers', async (ctx) => {
     const c = admin(ctx);
-    const attempts = await c.repo.listAttempts();
+    // Load profiles in bulk rather than making one database transaction for
+    // every teacher shown in the roster.
+    const [attempts, submittedProfiles] = await Promise.all([c.repo.listAttempts(), c.repo.listSubmittedProfiles()]);
+    const profiles = new Map(submittedProfiles.map(({ attempt, profile }) => [attempt.attempt_id, profile]));
     const latest = new Map<string, AttemptRow>();
     for (const a of attempts) {
       const cur = latest.get(a.teacher_id);
@@ -222,7 +253,7 @@ export function createService(cfg: ServiceConfig) {
     const counts = await c.repo.answerCounts(rows.map((a) => a.attempt_id));
     const out: RosterRow[] = [];
     for (const a of rows) {
-      const p = a.status === 'submitted' ? await c.repo.getProfile(a.attempt_id) : null;
+      const p = a.status === 'submitted' ? profiles.get(a.attempt_id) ?? null : null;
       out.push({
         teacher_id: a.teacher_id, teacher_name: a.teacher_name, department: a.department, grade_band: a.grade_band,
         status: a.status, attempt_id: a.attempt_id, index: p?.index ?? null, index_band: p?.index_band ?? null,
@@ -266,12 +297,17 @@ export function createService(cfg: ServiceConfig) {
       const me = req.me;
       if (!me) throw new HttpError(401, { error: 'unauthenticated' });
       const repo = me.institution_id ? cfg.repo.forInstitution(me.institution_id) : null;
+      if (req.method.toUpperCase() === 'GET' && req.path === '/bootstrap') {
+        return { status: 200, body: await bootstrap(me, repo) };
+      }
       const cycles = repo ? await repo.listCycles() : [];
       const access = cfg.accessOverride
         ? cfg.accessOverride(me, cycles, now())
         : resolveAccess(me, cycles, now(), {
             moduleEnabled: cfg.moduleEnabled ?? true,
-            hasProfile: !!(repo && me.role === 'teacher' && (await repo.latestSubmittedAttempt(me.user_id))),
+            // Only the access response needs this flag. Saving an answer and
+            // other endpoints must not fetch a report just to check access.
+            hasProfile: !!(req.path === '/access' && repo && me.role === 'teacher' && (await repo.latestSubmittedAttempt(me.user_id))),
           });
       const ctx: Ctx = { me, access, repo };
       for (const [method, re, h] of routes) {
@@ -285,6 +321,10 @@ export function createService(cfg: ServiceConfig) {
       }
       return { status: 404, body: { error: 'not_found' } };
     } catch (err) {
+      if (err instanceof DatabaseUnavailableError) {
+        console.error('[teacher-assessment] database connection unavailable');
+        return { status: 503, body: { error: 'database_unavailable', message: err.message } };
+      }
       if (err instanceof HttpError) return { status: err.status, body: err.body };
       if (err instanceof z.ZodError) return { status: 400, body: { error: 'invalid_request', message: err.issues.map((i) => i.message).join('; ') } };
       console.error('[teacher-assessment]', err);

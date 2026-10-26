@@ -1,5 +1,5 @@
 export type {
-  AccessResponse, AnswerDTO, AnswerPut, AttemptDTO, BankItem, ClientDenialReason, ClientItem, ClientOption, CohortDTO,
+  AccessResponse, AnswerDTO, AnswerPut, AttemptDTO, BankItem, BootstrapDTO, ClientDenialReason, ClientItem, ClientOption, CohortDTO,
   DenialReason, DimensionResult, Insight, ItemLevelRow, Me, PathStep, ProfileDTO, Ranked, RosterRow, ViewerRole,
 } from '@thisai/ta-shared';
 

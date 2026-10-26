@@ -29,6 +29,15 @@ export interface AccessResponse {
   has_profile: boolean;
 }
 
+/** One authenticated page load; contains only this user's permitted data. */
+export interface BootstrapDTO {
+  me: Me;
+  access: AccessResponse;
+  attempt: AttemptDTO | null;
+  profile: ProfileDTO | null;
+  preview: ProfileDTO | null;
+}
+
 export interface ClientOption { label: string; text: string }
 /** An item as served to the teacher: options already in display order, relabelled A–D by position. */
 export interface ClientItem {

@@ -7,8 +7,8 @@ import { resetMvpData } from '../api/localBackend';
 import { RequireModuleAccess } from '../guards/RequireModuleAccess';
 import { renderAt } from './helpers';
 
-beforeEach(() => { localStorage.clear(); resetMvpData(); });
-afterEach(() => vi.unstubAllGlobals());
+beforeEach(() => { vi.stubEnv('VITE_TA_MODE', 'mvp'); localStorage.clear(); resetMvpData(); });
+afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
 
 describe('MVP mode', () => {
   it('opens teacher and admin routes with no sign-in and no network', async () => {

@@ -1,11 +1,14 @@
 /* Answer outbox for low-bandwidth schools. Each placement is written to
    IndexedDB first (one entry per attempt+item, newest wins), then PUT.
    Anything that fails with a network error stays queued and is flushed on
-   `online`, on an interval, and on the next page load. A 4xx is final and dropped. */
+   `online`, on an interval, and on the next page load. Final 4xx responses are
+   dropped; 401, 408 and 429 are retained for sign-in/retry. */
 import type { AnswerPut } from '../model/types';
 import { ApiError, api } from './client';
+import { isSupabase } from '../model/config';
+import { currentUserId } from '../../../platform/supabase';
 
-export interface QueuedAnswer { key: string; attemptId: string; itemId: string; body: AnswerPut; queuedAt: number }
+export interface QueuedAnswer { key: string; attemptId: string; itemId: string; body: AnswerPut; queuedAt: number; ownerId?: string }
 
 interface Store {
   put(e: QueuedAnswer): Promise<void>;
@@ -55,7 +58,7 @@ export class AnswerOutbox {
   private pending = 0;
   private lastError: string | null = null;
 
-  constructor(store?: Store, private send = api.putAnswer) {
+  constructor(store?: Store, private send = api.putAnswer, private owner: () => Promise<string | null | undefined> = async () => undefined) {
     this.store = store ?? idbStore() ?? memoryStore();
   }
 
@@ -67,42 +70,52 @@ export class AnswerOutbox {
   private emit() { for (const l of this.listeners) l(this.pending, this.lastError); }
 
   async enqueue(attemptId: string, itemId: string, body: AnswerPut) {
+    const ownerId = await this.owner();
+    if (ownerId === null) throw new Error('Sign in to save your answers.');
     const key = attemptId + '|' + itemId;
     try {
-      await this.store.put({ key, attemptId, itemId, body, queuedAt: Date.now() });
+      await this.store.put({ key, attemptId, itemId, body, queuedAt: Date.now(), ownerId });
     } catch {
       // Storage can be unavailable (private mode); fall back to sending directly.
       this.store = memoryStore();
-      await this.store.put({ key, attemptId, itemId, body, queuedAt: Date.now() });
+      await this.store.put({ key, attemptId, itemId, body, queuedAt: Date.now(), ownerId });
     }
     return this.flush();
   }
 
-  async count() { return (await this.store.all()).length; }
+  async entries() {
+    const ownerId = await this.owner();
+    if (ownerId === null) return [];
+    return (await this.store.all()).filter((e) => e.ownerId === ownerId);
+  }
+
+  async count() { return (await this.entries()).length; }
 
   flush(): Promise<void> {
     if (this.flushing) return this.flushing.then(() => this.flush());
     this.flushing = (async () => {
-      const all = (await this.store.all()).sort((a, b) => a.queuedAt - b.queuedAt);
+      const ownerId = await this.owner();
+      const all = ownerId === null ? [] : (await this.store.all()).filter((e) => e.ownerId === ownerId).sort((a, b) => a.queuedAt - b.queuedAt);
       this.pending = all.length;
       this.emit();
       for (const e of all) {
+        if (await this.owner() !== ownerId) break;
         try {
           await this.send(e.attemptId, e.itemId, e.body);
           const latest = (await this.store.all()).find((x) => x.key === e.key);
           if (latest && latest.queuedAt === e.queuedAt) await this.store.del(e.key);
           this.lastError = null;
         } catch (err) {
-          if (err instanceof ApiError && err.status >= 400 && err.status < 500 && err.status !== 408 && err.status !== 429) {
+          if (err instanceof ApiError && err.status >= 400 && err.status < 500 && ![401, 408, 429].includes(err.status)) {
             await this.store.del(e.key); // final: locked, invalid or forbidden
             this.lastError = err.message;
           } else {
-            this.lastError = 'offline';
+            this.lastError = err instanceof ApiError && err.status === 401 ? 'Sign in to sync your answers.' : 'offline';
             break; // keep order; retry later
           }
         }
       }
-      this.pending = (await this.store.all()).length;
+      this.pending = await this.count();
       this.emit();
     })().finally(() => { this.flushing = null; });
     return this.flushing;
@@ -118,4 +131,4 @@ export class AnswerOutbox {
   }
 }
 
-export const outbox = new AnswerOutbox();
+export const outbox = new AnswerOutbox(undefined, api.putAnswer, async () => isSupabase() ? await currentUserId() : undefined);

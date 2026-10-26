@@ -1,9 +1,10 @@
 /* Fetch wrappers for /api/teacher-assessment. Credentials ride on the existing
    thisai.pro session cookie; nothing is stored by this module. */
 import type {
-  AccessResponse, AnswerDTO, AnswerPut, AttemptDTO, BankItem, CohortDTO, ProfileDTO, RosterRow,
+  AccessResponse, AnswerDTO, AnswerPut, AttemptDTO, BankItem, BootstrapDTO, CohortDTO, ProfileDTO, RosterRow,
 } from '../model/types';
-import { isMvp } from '../model/config';
+import { isSupabase } from '../model/config';
+import { sessionHeaders } from '../../../platform/supabase';
 
 export const BASE = '/api/teacher-assessment';
 
@@ -14,16 +15,18 @@ export class ApiError extends Error {
 }
 
 async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
-  if (isMvp()) {
+  if (import.meta.env.VITE_TA_MODE !== 'platform' && import.meta.env.VITE_TA_MODE !== 'supabase') {
     const { localRequest } = await import('./localBackend'); // MVP only: keeps the bank out of platform builds
     const out = await localRequest(init.method ?? 'GET', path, init.body ? JSON.parse(String(init.body)) : undefined);
     if (out.status >= 400) throw new ApiError(out.status, (out.body ?? {}) as ApiError['body']);
     return out.body as T;
   }
+  const auth = isSupabase() ? await sessionHeaders() : {};
+  if (isSupabase() && !auth.authorization) throw new ApiError(401, { error: 'unauthenticated', message: 'Sign in to continue.' });
   const res = await fetch(BASE + path, {
     credentials: 'include',
     ...init,
-    headers: { accept: 'application/json', ...(init.body ? { 'content-type': 'application/json' } : {}), ...init.headers },
+    headers: { accept: 'application/json', ...(init.body ? { 'content-type': 'application/json' } : {}), ...init.headers, ...auth },
   });
   const text = await res.text();
   const body = text ? JSON.parse(text) : null;
@@ -37,6 +40,7 @@ const q = (p: Record<string, string | undefined>) => {
 };
 
 export const api = {
+  bootstrap: () => call<BootstrapDTO>('/bootstrap'),
   access: () => call<AccessResponse>('/access'),
   startAttempt: (grade_band: string, restart = false) =>
     call<AttemptDTO>('/attempts', { method: 'POST', body: JSON.stringify({ grade_band, restart }) }),
